@@ -18,24 +18,21 @@ echo "Starting Redis server in the background..."
 redis-server --daemonize yes
 echo "Redis server started."
 
-# Add a delay to allow Redis to initialize
-sleep 2
-
 # --- Start Celery Worker ---
 echo "Changing to frontend/blackjack_simulator directory..."
 cd frontend/blackjack_simulator
 echo "Starting Celery worker in the background..."
 nohup celery -A celery_worker.celery worker --loglevel=info > ../../logs/celery.log 2>&1 &
 echo "Celery worker started."
-cd ../../ # Return to the project root directory
+cd ../..
+echo "Returned to root directory."
 
 # --- Start Gunicorn Web Server ---
 echo "Changing to frontend directory..."
 cd frontend
 echo "Starting Gunicorn web server in the background..."
-nohup gunicorn --workers 2 --threads 2 --bind 0.0.0.0:8080 --access-logfile ../logs/gunicorn-access.log --error-logfile ../logs/gunicorn-error.log wsgi:app &
+nohup gunicorn --workers 1 --threads 1 --bind 0.0.0.0:8080 --access-logfile ../logs/gunicorn-access.log --error-logfile ../logs/gunicorn-error.log wsgi:app > ../logs/gunicorn.log 2>&1 &
 echo "Gunicorn web server started."
 cd ..
 echo "Returned to root directory."
-
-echo "All services started successfully."
+echo "All services started."

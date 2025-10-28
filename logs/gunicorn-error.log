@@ -1,0 +1,45 @@
+[2025-10-26 08:34:43 +0000] [25790] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 08:34:43 +0000] [25790] [INFO] Listening at: http://0.0.0.0:8080 (25790)
+[2025-10-26 08:34:43 +0000] [25790] [INFO] Using worker: sync
+[2025-10-26 08:34:43 +0000] [25791] [INFO] Booting worker with pid: 25791
+[2025-10-26 08:35:28 +0000] [25791] [INFO] Worker exiting (pid: 25791)
+[2025-10-26 08:35:28 +0000] [25790] [INFO] Handling signal: term
+[2025-10-26 08:35:28 +0000] [25790] [INFO] Shutting down: Master
+[2025-10-26 08:35:57 +0000] [26060] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 08:35:57 +0000] [26060] [INFO] Listening at: http://0.0.0.0:8080 (26060)
+[2025-10-26 08:35:57 +0000] [26060] [INFO] Using worker: sync
+[2025-10-26 08:35:57 +0000] [26061] [INFO] Booting worker with pid: 26061
+[2025-10-26 08:39:28 +0000] [26060] [INFO] Handling signal: term
+[2025-10-26 08:39:28 +0000] [26061] [INFO] Worker exiting (pid: 26061)
+[2025-10-26 08:39:28 +0000] [26060] [ERROR] Worker (pid:26061) was sent SIGTERM!
+[2025-10-26 08:39:29 +0000] [26060] [INFO] Shutting down: Master
+[2025-10-26 08:39:39 +0000] [26870] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 08:39:39 +0000] [26870] [INFO] Listening at: http://0.0.0.0:8080 (26870)
+[2025-10-26 08:39:39 +0000] [26870] [INFO] Using worker: sync
+[2025-10-26 08:39:39 +0000] [26871] [INFO] Booting worker with pid: 26871
+[2025-10-26 08:43:09 +0000] [26871] [INFO] Worker exiting (pid: 26871)
+[2025-10-26 08:43:09 +0000] [26870] [INFO] Handling signal: term
+[2025-10-26 08:43:09 +0000] [26870] [INFO] Shutting down: Master
+[2025-10-26 08:44:01 +0000] [27688] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 08:44:01 +0000] [27688] [INFO] Listening at: http://0.0.0.0:8080 (27688)
+[2025-10-26 08:44:01 +0000] [27688] [INFO] Using worker: sync
+[2025-10-26 08:44:01 +0000] [27689] [INFO] Booting worker with pid: 27689
+[2025-10-26 09:11:45 +0000] [27689] [INFO] Worker exiting (pid: 27689)
+[2025-10-26 09:11:45 +0000] [27688] [INFO] Handling signal: term
+[2025-10-26 09:12:05 +0000] [27688] [INFO] Shutting down: Master
+[2025-10-26 09:12:26 +0000] [33165] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 09:12:26 +0000] [33165] [INFO] Listening at: http://0.0.0.0:8080 (33165)
+[2025-10-26 09:12:26 +0000] [33165] [INFO] Using worker: sync
+[2025-10-26 09:12:26 +0000] [33166] [INFO] Booting worker with pid: 33166
+[2025-10-26 09:20:36 +0000] [33165] [INFO] Handling signal: term
+[2025-10-26 09:20:36 +0000] [33166] [INFO] Worker exiting (pid: 33166)
+[2025-10-26 09:20:39 +0000] [33165] [INFO] Shutting down: Master
+[2025-10-26 09:23:50 +0000] [35342] [INFO] Starting gunicorn 22.0.0
+[2025-10-26 09:23:50 +0000] [35342] [INFO] Listening at: http://0.0.0.0:8080 (35342)
+[2025-10-26 09:23:50 +0000] [35342] [INFO] Using worker: gthread
+[2025-10-26 09:23:50 +0000] [35352] [INFO] Booting worker with pid: 35352
+[2025-10-26 09:23:51 +0000] [35353] [INFO] Booting worker with pid: 35353
+[2025-10-26 09:24:37 +0000] [35342] [INFO] Handling signal: int
+[2025-10-26 09:24:37 +0000] [35342] [ERROR] Worker (pid:35353) was sent SIGHUP!
+[2025-10-26 09:24:37 +0000] [35342] [ERROR] Worker (pid:35352) was sent SIGHUP!
+[2025-10-26 09:24:37 +0000] [35342] [INFO] Shutting down: Master

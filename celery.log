@@ -1,0 +1,184 @@
+[2025-10-25 01:34:28,135: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:34:28,142: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:34:29,160: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:34:29,182: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:34:39,073: ERROR/MainProcess] Received unregistered task of type 'blackjack_simulator.celery_worker.run_jost_simulation_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[{"player": {"id": 1, "name": "Basic Strategy Player", "bankroll": 10000, "is_default": true}, "casino": {"id": 1, "name": "Default Casino", "deck_count": 6, "dealer_stands_on_soft_17": true, "blackjack_payout": 1.5, "allow_late_surrender": true, "allow_early_surrender": false, "allow_resplit_to_hands": 4, "allow_double_after_split": true, "allow_double_on_any_two": true, "reshuffle_penetration": 75.0, "offer_insurance": true, "dealer_checks_for_blackjack": true}, "strategy": {"strategy_name": "conservative", "hard_totals": {"21": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "20": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "19": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "18": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "17": {"2": "S", "3": "S", "4": "S", "5": "S",... (4856b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'blackjack_simulator.celery_worker.run_jost_simulation_task', 'id': '2ae75971-628a-4f0f-bb75-58d8981072a4', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '2ae75971-628a-4f0f-bb75-58d8981072a4', 'parent_id': None, 'argsrepr': "({'player': {'id': 1, 'name': 'Basic Strategy Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 75.0, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'strategy_name': 'conservative', 'hard_totals': {...}, 'soft_totals': {...}, 'pairs': {...}}, 'betting_strategy': {'id': 1, 'name': 'Flat Bet', 'min_bet': 10, 'bet_ramp': [...], 'is_default': True}, 'iterations': 5},)", 'kwargsrepr': '{}', 'origin': 'gen1212@firebase-jostmva-1761342297938', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 662, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'blackjack_simulator.celery_worker.run_jost_simulation_task'
+[2025-10-25 01:37:13,037: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:37:13,044: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:37:14,065: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:37:14,091: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:37:18,485: ERROR/MainProcess] Received unregistered task of type 'blackjack_simulator.celery_worker.run_jost_simulation_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[{"player": {"id": 1, "name": "Basic Strategy Player", "bankroll": 10000, "is_default": true}, "casino": {"id": 1, "name": "Default Casino", "deck_count": 6, "dealer_stands_on_soft_17": true, "blackjack_payout": 1.5, "allow_late_surrender": true, "allow_early_surrender": false, "allow_resplit_to_hands": 4, "allow_double_after_split": true, "allow_double_on_any_two": true, "reshuffle_penetration": 75.0, "offer_insurance": true, "dealer_checks_for_blackjack": true}, "strategy": {"strategy_name": "conservative", "hard_totals": {"21": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "20": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "19": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "18": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "17": {"2": "S", "3": "S", "4": "S", "5": "S",... (4856b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'blackjack_simulator.celery_worker.run_jost_simulation_task', 'id': '0b32b65a-1705-4ff6-be76-4294c6f7ae84', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '0b32b65a-1705-4ff6-be76-4294c6f7ae84', 'parent_id': None, 'argsrepr': "({'player': {'id': 1, 'name': 'Basic Strategy Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 75.0, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'strategy_name': 'conservative', 'hard_totals': {...}, 'soft_totals': {...}, 'pairs': {...}}, 'betting_strategy': {'id': 1, 'name': 'Flat Bet', 'min_bet': 10, 'bet_ramp': [...], 'is_default': True}, 'iterations': 5},)", 'kwargsrepr': '{}', 'origin': 'gen1898@firebase-jostmva-1761342297938', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 662, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'blackjack_simulator.celery_worker.run_jost_simulation_task'
+[2025-10-25 01:38:36,422: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:38:36,431: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:38:37,456: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:38:37,474: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:38:43,513: ERROR/MainProcess] Received unregistered task of type 'blackjack_simulator.celery_worker.run_jost_simulation_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[{"player": {"id": 1, "name": "Basic Strategy Player", "bankroll": 10000, "is_default": true}, "casino": {"id": 1, "name": "Default Casino", "deck_count": 6, "dealer_stands_on_soft_17": true, "blackjack_payout": 1.5, "allow_late_surrender": true, "allow_early_surrender": false, "allow_resplit_to_hands": 4, "allow_double_after_split": true, "allow_double_on_any_two": true, "reshuffle_penetration": 75.0, "offer_insurance": true, "dealer_checks_for_blackjack": true}, "strategy": {"strategy_name": "conservative", "hard_totals": {"21": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "20": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "19": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "18": {"2": "S", "3": "S", "4": "S", "5": "S", "6": "S", "7": "S", "8": "S", "9": "S", "10": "S", "11": "S"}, "17": {"2": "S", "3": "S", "4": "S", "5": "S",... (4856b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'blackjack_simulator.celery_worker.run_jost_simulation_task', 'id': '8246bd01-2f73-4a40-9085-0f9756970f46', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '8246bd01-2f73-4a40-9085-0f9756970f46', 'parent_id': None, 'argsrepr': "({'player': {'id': 1, 'name': 'Basic Strategy Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 75.0, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'strategy_name': 'conservative', 'hard_totals': {...}, 'soft_totals': {...}, 'pairs': {...}}, 'betting_strategy': {'id': 1, 'name': 'Flat Bet', 'min_bet': 10, 'bet_ramp': [...], 'is_default': True}, 'iterations': 5},)", 'kwargsrepr': '{}', 'origin': 'gen2349@firebase-jostmva-1761342297938', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 662, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'blackjack_simulator.celery_worker.run_jost_simulation_task'
+[2025-10-25 01:41:03,210: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:41:03,262: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:41:04,360: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:41:04,380: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:41:27,401: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:41:27,410: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:41:28,435: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:41:28,457: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:42:16,352: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:42:16,365: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:42:17,388: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:42:17,405: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 01:42:17,405: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 01:42:17,405: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 01:42:17,406: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:43:17,975: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:43:17,984: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:43:19,003: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:43:19,022: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 01:43:19,023: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 01:43:19,023: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 01:43:19,023: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:43:20,392: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[6ab34cdd-cde6-419f-aa29-2952fcc6181a] received
+[2025-10-25 01:43:20,398: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 01:43:20,400: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: create_playing_strategy() got an unexpected keyword argument 'name'
+[2025-10-25 01:43:20,424: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[6ab34cdd-cde6-419f-aa29-2952fcc6181a] succeeded in 0.026385314999060938s: {'error': 'An unexpected error occurred: create_playing_strategy() got an unexpected keyword argument \'name\''}
+[2025-10-25 01:47:42,209: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 01:47:42,216: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 01:47:43,232: INFO/MainProcess] mingle: all alone
+[2025-10-25 01:47:43,251: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 01:47:43,252: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 01:47:43,252: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 01:47:43,252: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 01:47:43,602: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[35c37a29-f3ca-4572-8cd7-a26dc72c801e] received
+[2025-10-25 01:47:43,612: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 01:47:43,614: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: Playing strategy name is missing from the configuration.
+[2025-10-25 01:47:43,639: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[35c37a29-f3ca-4572-8cd7-a26dc72c801e] succeeded in 0.031682839999120915s: {'error': 'An unexpected error occurred: Playing strategy name is missing from the configuration.'}
+[2025-10-25 02:09:48,917: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[ca04b20c-3cf5-4483-9052-04ad29b173ed] received
+[2025-10-25 02:09:48,923: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 02:09:48,924: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: Unknown playing strategy: conservative
+[2025-10-25 02:09:48,932: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[ca04b20c-3cf5-4483-9052-04ad29b173ed] succeeded in 0.008289723999041598s: {'error': 'An unexpected error occurred: Unknown playing strategy: conservative'}
+[2025-10-25 02:58:32,673: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[bd457191-0399-4a96-965c-d7656f495b12] received
+[2025-10-25 02:58:32,679: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 02:58:32,682: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: Unknown playing strategy: conservative
+[2025-10-25 02:58:32,693: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[bd457191-0399-4a96-965c-d7656f495b12] succeeded in 0.01442494799994165s: {'error': 'An unexpected error occurred: Unknown playing strategy: conservative'}
+[2025-10-25 03:00:18,977: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[da4cbc25-b420-4d4f-a6d6-305a597da65c] received
+[2025-10-25 03:00:18,985: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 03:00:18,988: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: Unknown playing strategy: conservative
+[2025-10-25 03:00:18,992: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[da4cbc25-b420-4d4f-a6d6-305a597da65c] succeeded in 0.007161351000831928s: {'error': 'An unexpected error occurred: Unknown playing strategy: conservative'}
+[2025-10-25 03:00:33,876: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[8f696ce3-4311-44c7-8f23-6c21ded9a937] received
+[2025-10-25 03:00:33,878: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 03:00:33,880: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: Can't instantiate abstract class DynamicBettingStrategy without an implementation for abstract method 'get_bet'
+[2025-10-25 03:00:33,883: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[8f696ce3-4311-44c7-8f23-6c21ded9a937] succeeded in 0.004519119000178762s: {'error': 'An unexpected error occurred: Can\'t instantiate abstract class DynamicBettingStrategy without an implementation for abstract method \'get_bet\''}
+[2025-10-25 03:05:55,533: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 03:05:55,546: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 03:05:56,579: INFO/MainProcess] mingle: all alone
+[2025-10-25 03:05:56,598: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 03:05:56,598: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 03:05:56,598: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 03:05:56,598: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 03:06:06,980: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[d68ec3e0-198d-4909-a7a4-e0eebc942ae2] received
+[2025-10-25 03:06:06,986: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 03:06:06,988: WARNING/ForkPoolWorker-1] Error during simulation setup or execution: 'true_count_threshold'
+[2025-10-25 03:06:07,055: ERROR/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[d68ec3e0-198d-4909-a7a4-e0eebc942ae2] raised unexpected: KeyError('true_count_threshold')
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/celery/app/trace.py", line 736, in __protected_call__
+    return self.run(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/celery_worker.py", line 87, in run_jost_simulation_task
+    betting_strategy = RampBettingStrategy(
+                       ^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/celery_worker.py", line 41, in __init__
+    self.ramp = sorted(ramp, key=lambda x: x['true_count_threshold'], reverse=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/celery_worker.py", line 41, in <lambda>
+    self.ramp = sorted(ramp, key=lambda x: x['true_count_threshold'], reverse=True)
+                                           ~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'true_count_threshold'
+[2025-10-25 03:08:49,028: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 03:08:49,036: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 03:08:50,052: INFO/MainProcess] mingle: all alone
+[2025-10-25 03:08:50,069: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 03:08:50,069: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 03:08:50,069: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 03:08:50,069: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 03:08:52,293: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[e07feccd-62a9-4994-94d6-61840516553b] received
+[2025-10-25 03:08:52,298: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 03:08:52,310: WARNING/ForkPoolWorker-1] --- Jost Simulation Task Finished ---
+[2025-10-25 03:08:52,348: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[e07feccd-62a9-4994-94d6-61840516553b] succeeded in 0.049943970996537246s: {'Basic Strategy Player': {'initial_bankroll': 10000, 'final_bankroll': 9940, 'net_gain_loss': -60, 'total_wagered': 60.0, 'player_edge': -1.0}}
+[2025-10-25 03:12:10,516: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-25 03:12:10,526: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-25 03:12:11,544: INFO/MainProcess] mingle: all alone
+[2025-10-25 03:12:11,563: WARNING/MainProcess] --- Worker is ready. Registered tasks: ---
+[2025-10-25 03:12:11,563: WARNING/MainProcess] dict_keys(['celery.group', 'celery.map', 'frontend.blackjack_simulator.celery_worker.run_jost_simulation_task', 'celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock'])
+[2025-10-25 03:12:11,563: WARNING/MainProcess] -----------------------------------------
+[2025-10-25 03:12:11,564: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-25 03:12:42,996: INFO/MainProcess] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[06474e5b-401c-47a2-b57b-5ac19799a20c] received
+[2025-10-25 03:12:43,001: WARNING/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
+[2025-10-25 03:12:43,033: WARNING/ForkPoolWorker-1] --- Jost Simulation Task Finished ---
+[2025-10-25 03:12:43,048: INFO/ForkPoolWorker-1] Task frontend.blackjack_simulator.celery_worker.run_jost_simulation_task[06474e5b-401c-47a2-b57b-5ac19799a20c] succeeded in 0.047693517997686286s: {'Basic Strategy Player': {'initial_bankroll': 10000, 'final_bankroll': 10200.0, 'net_gain_loss': 200.0, 'total_wagered': 1170.0, 'player_edge': 0.17094017094017094}}

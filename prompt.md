@@ -1,17 +1,19 @@
-### Project Status & Next Steps
+# AI Companion Instructions
 
-**Current Situation:**
+Before providing assistance, please familiarize yourself with the project by reviewing the following files:
 
-We have successfully completed a thorough architectural review of the Blackjack Simulation Platform. This process was initiated after diagnosing a critical bug where the frontend was sending an incorrect data payload to the backend simulation engine.
+1.  **Project Configuration:**
+    *   `.idx/dev.nix`: Understand the Nix-based development environment setup.
+    *   `.idx/airules.md`: Review the specific rules and persona guidelines for interacting with this project.
 
-Specifically, we identified that the Flask web application was passing the *entire contents* of a strategy's JSON file to the Celery worker, when the backend `jost_engine` only expects a dictionary containing the strategy's *name* (e.g., `{'name': 'h17_basic_strategy'}`).
+2.  **Project Documentation:**
+    *   `ARCHITECTURE.md`: Get a high-level overview of the system's architecture, including the frontend, backend, and communication protocols.
+    *   `Git.md`: Understand the multi-repository Git structure and the current status of each repository.
+    *   `README.md`: Read the general project information and setup instructions.
+    *   `todo.md`: Review the project's roadmap and future development plans.
 
-To clarify this and other system interactions, we have created a comprehensive `ARCHITECTURE.md` document. This document now fully details the roles of the frontend, the backend, the asynchronous communication protocol (Celery and Redis), and the data contracts between them.
+By understanding these documents, you will have the necessary context to provide accurate and relevant assistance.
 
-**Moving Forward:**
+## Task Management
 
-With a clear and agreed-upon understanding of the architecture, our immediate goal is to implement the fix for the bug we diagnosed.
-
-1.  **Implement the Fix:** We will modify the `run_simulation_action` route within `frontend/blackjack_simulator/app.py`.
-2.  **Correct the Payload:** Inside this function, we will adjust the creation of the `simulation_config` dictionary to ensure the `strategy` key is formatted correctly before being passed to the Celery task.
-3.  **Verify the Solution:** After applying the code change, we will run a new simulation from the web interface to confirm that the bug is resolved and that the simulation engine receives the correct data and executes successfully.
+Regularly review the `.idx/todo.md` file. When you believe a task has been completed, update the file by marking the corresponding item as done (e.g., changing `[ ]` to `[x]`).
