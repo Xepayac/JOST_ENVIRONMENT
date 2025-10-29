@@ -1,10 +1,10 @@
  
  -------------- celery@firebase-jostmva-1761342297938 v5.5.3 (immunity)
 --- ***** ----- 
--- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-26 09:23:52
+-- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-29 20:46:24
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x79f932cd7f80
+- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x7803e5768350
 - ** ---------- .> transport:   redis://localhost:6379/0
 - ** ---------- .> results:     redis://localhost:6379/0
 - *** --- * --- .> concurrency: 2 (prefork)
@@ -17,66 +17,15 @@
 [tasks]
   . jost_simulation_task
 
-[2025-10-26 09:23:52,626: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2025-10-26 09:23:52,641: INFO/MainProcess] mingle: searching for neighbors
-[2025-10-26 09:23:53,680: INFO/MainProcess] mingle: all alone
-[2025-10-26 09:23:53,700: INFO/MainProcess] --- Worker is ready. Registered tasks: ---
-[2025-10-26 09:23:53,704: INFO/MainProcess] dict_keys(['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'celery.group', 'celery.map', 'jost_simulation_task'])
-[2025-10-26 09:23:53,704: INFO/MainProcess] -----------------------------------------
-[2025-10-26 09:23:53,704: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
-[2025-10-26 09:23:53,714: INFO/MainProcess] Task jost_simulation_task[ed89abe4-c45a-4b14-a3b7-3b934524493c] received
-[2025-10-26 09:23:53,719: INFO/ForkPoolWorker-2] --- Starting Jost Simulation Task ---
-[2025-10-26 09:23:53,721: INFO/ForkPoolWorker-2] Received simulation_config: {'player': {'id': 1, 'name': 'Default Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 0.5, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}}, 'betting_strategy': {'id': 1, 'name': 'Default Strategy', 'min_bet': 10, 'bet_ramp': {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, 'is_default': True}, 'iterations': 5, 'true_count_threshold': 1}
-[2025-10-26 09:23:53,722: INFO/ForkPoolWorker-2] Creating playing strategy with strategy_config: {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}} and game_config: {'hit_on_soft_17': False}
-[2025-10-26 09:23:53,722: INFO/ForkPoolWorker-2] Successfully created playing strategy: BasicPlayingStrategy
-[2025-10-26 09:23:53,724: INFO/MainProcess] Task jost_simulation_task[1a4f28d1-5dde-4390-97c0-58f1dcecf276] received
-[2025-10-26 09:23:53,733: INFO/ForkPoolWorker-2] Running simulation for 5 rounds.
-[2025-10-26 09:23:53,737: INFO/ForkPoolWorker-2] --- Jost Simulation Task Finished ---
-[2025-10-26 09:23:53,739: INFO/ForkPoolWorker-1] --- Starting Jost Simulation Task ---
-[2025-10-26 09:23:53,740: INFO/ForkPoolWorker-1] Received simulation_config: {'player': {'id': 1, 'name': 'Default Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 0.5, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}}, 'betting_strategy': {'id': 1, 'name': 'Default Strategy', 'min_bet': 10, 'bet_ramp': {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, 'is_default': True}, 'iterations': 5, 'true_count_threshold': 1}
-[2025-10-26 09:23:53,746: INFO/ForkPoolWorker-1] Creating playing strategy with strategy_config: {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}} and game_config: {'hit_on_soft_17': False}
-[2025-10-26 09:23:53,746: INFO/ForkPoolWorker-1] Successfully created playing strategy: BasicPlayingStrategy
-[2025-10-26 09:23:53,756: INFO/ForkPoolWorker-1] Running simulation for 5 rounds.
-[2025-10-26 09:23:53,760: INFO/ForkPoolWorker-1] --- Jost Simulation Task Finished ---
-[2025-10-26 09:23:53,773: INFO/ForkPoolWorker-2] Task jost_simulation_task[ed89abe4-c45a-4b14-a3b7-3b934524493c] succeeded in 0.055088749002607074s: {'Default Player': {'initial_bankroll': 10000, 'final_bankroll': 10000, 'net_gain_loss': 0, 'total_wagered': 50.0, 'player_edge': 0.0}}
-[2025-10-26 09:23:53,784: INFO/ForkPoolWorker-1] Task jost_simulation_task[1a4f28d1-5dde-4390-97c0-58f1dcecf276] succeeded in 0.04479526900104247s: {'Default Player': {'initial_bankroll': 10000, 'final_bankroll': 10010, 'net_gain_loss': 10, 'total_wagered': 50.0, 'player_edge': 0.2}}
-[2025-10-26 09:24:20,216: INFO/MainProcess] Task jost_simulation_task[114b5bf0-0472-403d-9ff2-8c7b3a20c3ac] received
-[2025-10-26 09:24:20,219: INFO/ForkPoolWorker-2] --- Starting Jost Simulation Task ---
-[2025-10-26 09:24:20,219: INFO/ForkPoolWorker-2] Received simulation_config: {'player': {'id': 1, 'name': 'Default Player', 'bankroll': 10000, 'is_default': True}, 'casino': {'id': 1, 'name': 'Default Casino', 'deck_count': 6, 'dealer_stands_on_soft_17': True, 'blackjack_payout': 1.5, 'allow_late_surrender': True, 'allow_early_surrender': False, 'allow_resplit_to_hands': 4, 'allow_double_after_split': True, 'allow_double_on_any_two': True, 'reshuffle_penetration': 0.5, 'offer_insurance': True, 'dealer_checks_for_blackjack': True}, 'strategy': {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}}, 'betting_strategy': {'id': 1, 'name': 'Default Strategy', 'min_bet': 10, 'bet_ramp': {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, 'is_default': True}, 'iterations': 5, 'true_count_threshold': 1}
-[2025-10-26 09:24:20,219: INFO/ForkPoolWorker-2] Creating playing strategy with strategy_config: {'name': 'Hit on 17 Basic Strategy', 'description': 'A basic playing strategy for blackjack games where the dealer hits on a soft 17.', 'hard_totals': {'17-21': {'2-11': 'S'}, '16': {'2-6': 'S', '7-8': 'H', '9-11': 'R'}, '15': {'2-6': 'S', '7-11': 'H'}, '14': {'2-6': 'S', '7-11': 'H'}, '13': {'2-6': 'S', '7-11': 'H'}, '12': {'2-3': 'H', '4-6': 'S', '7-11': 'H'}, '11': {'2-11': 'D'}, '10': {'2-9': 'D', '10-11': 'H'}, '9': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '5-8': {'2-11': 'H'}}, 'soft_totals': {'20': {'2-11': 'S'}, '19': {'2-5': 'S', '6': 'D', '7-11': 'S'}, '18': {'2-6': 'D', '7-8': 'S', '9-11': 'H'}, '17': {'2': 'H', '3-6': 'D', '7-11': 'H'}, '16': {'2-11': 'H'}, '15': {'2-11': 'H'}, '14': {'2-11': 'H'}, '13': {'2-11': 'H'}}, 'pairs': {'11': {'2-11': 'P'}, '10': {'2-11': 'S'}, '9': {'2-6': 'P', '7': 'S', '8-9': 'P', '10-11': 'S'}, '8': {'2-11': 'P'}, '7': {'2-7': 'P', '8-11': 'H'}, '6': {'2-6': 'P', '7-11': 'H'}, '5': {'2-9': 'D', '10-11': 'H'}, '4': {'2-4': 'H', '5-6': 'P', '7-11': 'H'}, '3': {'2-7': 'P', '8-11': 'H'}, '2': {'2-7': 'P', '8-11': 'H'}}} and game_config: {'hit_on_soft_17': False}
-[2025-10-26 09:24:20,219: INFO/ForkPoolWorker-2] Successfully created playing strategy: BasicPlayingStrategy
-[2025-10-26 09:24:20,224: INFO/ForkPoolWorker-2] Running simulation for 5 rounds.
-[2025-10-26 09:24:20,228: INFO/ForkPoolWorker-2] --- Jost Simulation Task Finished ---
-[2025-10-26 09:24:20,236: INFO/ForkPoolWorker-2] Task jost_simulation_task[114b5bf0-0472-403d-9ff2-8c7b3a20c3ac] succeeded in 0.01798490199871594s: {'Default Player': {'initial_bankroll': 10000, 'final_bankroll': 10010, 'net_gain_loss': 10, 'total_wagered': 50.0, 'player_edge': 0.2}}
-
-Restarting celery worker (/home/user/jostmva/.venv/bin/celery -A celery_worker.celery worker --loglevel=info)
-
-worker: Hitting Ctrl+C again will initiate cold shutdown, terminating all running tasks!
-
-worker: Warm shutdown (MainProcess)
- 
- -------------- celery@firebase-jostmva-1761342297938 v5.5.3 (immunity)
---- ***** ----- 
--- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-26 09:24:49
-- *** --- * --- 
-- ** ---------- [config]
-- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x7c60a73151c0
-- ** ---------- .> transport:   redis://localhost:6379/0
-- ** ---------- .> results:     redis://localhost:6379/0
-- *** --- * --- .> concurrency: 2 (prefork)
--- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
---- ***** ----- 
- -------------- [queues]
-                .> celery           exchange=celery(direct) key=celery
-                
-
-[tasks]
-  . jost_simulation_task
-
-[2025-10-26 09:24:50,322: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2025-10-26 09:24:50,339: INFO/MainProcess] mingle: searching for neighbors
-[2025-10-26 09:24:51,389: INFO/MainProcess] mingle: all alone
-[2025-10-26 09:24:51,423: INFO/MainProcess] --- Worker is ready. Registered tasks: ---
-[2025-10-26 09:24:51,424: INFO/MainProcess] dict_keys(['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'celery.group', 'celery.map', 'jost_simulation_task'])
-[2025-10-26 09:24:51,424: INFO/MainProcess] -----------------------------------------
-[2025-10-26 09:24:51,424: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-29 20:46:25,038: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-29 20:46:25,048: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-29 20:46:26,063: INFO/MainProcess] mingle: all alone
+[2025-10-29 20:46:26,095: INFO/MainProcess] --- Worker is ready. Registered tasks: ['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'jost_simulation_task', 'celery.group', 'celery.map'] ---
+[2025-10-29 20:46:26,097: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-29 20:46:46,835: INFO/MainProcess] Task jost_simulation_task[297ae6fc-0e08-4875-8244-c1a49d3ebf9b] received
+[2025-10-29 20:46:46,840: INFO/ForkPoolWorker-2] --- Received Jost Simulation Task ---
+[2025-10-29 20:46:46,846: INFO/ForkPoolWorker-2] Running simulation for 5 rounds.
+[2025-10-29 20:46:46,846: INFO/ForkPoolWorker-2] Starting simulation for 5 rounds.
+[2025-10-29 20:46:46,848: INFO/ForkPoolWorker-2] Simulation finished successfully.
+[2025-10-29 20:46:46,849: INFO/ForkPoolWorker-2] --- Jost Simulation Task Finished ---
+[2025-10-29 20:46:46,876: INFO/ForkPoolWorker-2] Task jost_simulation_task[297ae6fc-0e08-4875-8244-c1a49d3ebf9b] succeeded in 0.036400143000719254s: {'Master Player_1': {'initial_bankroll': 10000, 'final_bankroll': 10010, 'net_gain_loss': 10, 'total_wagered': 50.0, 'player_edge': 0.2, 'hand_history': [{...}, {...}, {...}, {...}, {...}]}}

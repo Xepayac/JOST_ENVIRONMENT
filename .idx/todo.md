@@ -18,21 +18,29 @@ This file tracks specific, granular tasks for the development team.
 - [x] **Verify CLI Functionality**
 - [x] **Make sure the program works** - *Core functionality restored after race condition fix.*
 - [x] **Consolidate JSON Files to a Single Source of Truth.** - *Decision made to use the main database as the single source of truth. The Celery worker will now generate temporary JSON files on-the-fly for each simulation run, mimicking the structure of the "perfect file" examples that remain within the `jost_engine` project. This ensures the engine stays decoupled while eliminating data duplication.*
-- [ ] **Generate "Perfect Example" Strategy Files**
-    - [ ] Create `generate_strategies.py` script to run the strategy generator.
-    - [ ] Generate H17 (Hits on Soft 17) strategy file.
-    - [ ] Generate S17 (Stands on Soft 17) strategy file.
-- [ ] **Refactor `jost_engine` for Clarity and Testability**
-    - [ ] **Add End-to-End Integration Test:** Create a new test file (`backend/tests/test_integration.py`) that runs a full simulation using real data files to ensure the engine works from end to end.
-    - [ ] **Curate "Perfect Example" JSON Files:** Create a minimal, high-quality set of reference files for players, casinos, and strategies, establishing a clear data contract for the engine.
-    - [ ] **Update and Finalize Integration Test:** Modify the new integration test to use the newly created "perfect example" files.
-    - [ ] **Clean Up Legacy Data Files:** Delete the numerous old and redundant JSON files from the `jost_engine/data` directory.
+- [X] **Generate "Perfect Example" Strategy Files**
+    - [X] Create `generate_strategies.py` script to run the strategy generator.
+    - [X] Generate H17 (Hits on Soft 17) strategy file.
+    - [X] Generate S17 (Stands on Soft 17) strategy file.
+- [X] **Refactor `jost_engine` for Clarity and Testability**
+    - [X] **Add End-to-End Integration Test:** Create a new test file (`backend/tests/test_integration.py`) that runs a full simulation using real data files to ensure the engine works from end to end.
+    - [X] **Curate "Perfect Example" JSON Files:** Create a minimal, high-quality set of reference files for players, casinos, and strategies, establishing a clear data contract for the engine.
+    - [X] **Update and Finalize Integration Test:** Modify the new integration test to use the newly created "perfect example" files.
+    - [X] **Clean Up Legacy Data Files:** Delete the numerous old and redundant JSON files from the `jost_engine/data` directory.
+- [X] **Refine CLI for Flexibility and Scripting (Future Enhancement)**
+    - [X] **Decision:** For now, the interactive CLI (`main.py`) will be maintained as it serves as an effective "sales piece" for demonstrating the engine's capabilities. The following items are planned for a future refactor.
 - [ ] **Harden Backend Test Strategy:** Review the existing backend tests in `backend/tests`. Identify and add tests for edge cases and more complex simulation scenarios.
 
 ## Phase 2: Enhance Frontend Application
 
 This phase focuses on building out the user-facing features and improving the application's quality. For more context, see the Project Roadmap section in `.idx/ARCHITECTURE.md`.
 
+- [x] **Fix Core Simulation Functionality:** - *The simulation was failing due to a series of data structure and serialization issues. This has been resolved.*
+- [x] **Implement Hand History Feature:**
+    - [x] Add `hand_history` column to the `Result` model.
+    - [x] Add a checkbox to the simulation page to enable/disable hand history logging.
+    - [x] Update the backend to handle the new `log_hands` parameter.
+    - [x] Add a download button to the results page to download the hand history.
 - [ ] **Improve Visual Design:**
     - [ ] Research and select a lightweight CSS framework (e.g., Bootstrap, Bulma) to apply a clean and modern design to the application templates.
     - [ ] Redesign the layout of the simulation configuration and results pages for better readability and user experience.

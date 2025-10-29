@@ -43,3 +43,12 @@
 [2025-10-26 09:24:37 +0000] [35342] [ERROR] Worker (pid:35353) was sent SIGHUP!
 [2025-10-26 09:24:37 +0000] [35342] [ERROR] Worker (pid:35352) was sent SIGHUP!
 [2025-10-26 09:24:37 +0000] [35342] [INFO] Shutting down: Master
+[2025-10-29 20:09:56 +0000] [18310] [INFO] Starting gunicorn 22.0.0
+[2025-10-29 20:09:56 +0000] [18310] [INFO] Listening at: http://0.0.0.0:8080 (18310)
+[2025-10-29 20:09:56 +0000] [18310] [INFO] Using worker: gthread
+[2025-10-29 20:09:56 +0000] [18320] [INFO] Booting worker with pid: 18320
+[2025-10-29 20:09:57 +0000] [18321] [INFO] Booting worker with pid: 18321
+[2025-10-29 20:10:43 +0000] [18310] [INFO] Handling signal: int
+[2025-10-29 20:10:43 +0000] [18310] [ERROR] Worker (pid:18321) was sent SIGHUP!
+[2025-10-29 20:10:43 +0000] [18310] [ERROR] Worker (pid:18320) was sent SIGHUP!
+[2025-10-29 20:10:43 +0000] [18310] [INFO] Shutting down: Master

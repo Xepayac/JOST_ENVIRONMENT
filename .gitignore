@@ -1,4 +1,3 @@
 *.log
 instance/
-.idx/
 .venv/
