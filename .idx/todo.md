@@ -81,16 +81,23 @@ This phase focuses on building out the user-facing features and improving the ap
 
 - [x] **Develop Frontend Test Strategy:**
     - [x] Research and decide on a testing framework for Flask applications (e.g., Pytest with `pytest-flask`).
-    - [ ] Write initial tests for critical frontend routes, such as form submissions and API endpoints.
-    - [ ] Write tests for edge cases and incorrect files when building files.    
+    - [x] Write initial tests for critical frontend routes, such as form submissions and API endpoints.
+    - [X] Write tests for edge cases and incorrect files when building files. 
+    - [X] Write a full suite of pytests guided py pytest-cov
 - [ ] **Game Hardening and Quality of Experience upgrades:**
-    - [ ] Ensure MASTER strategies in the backend are surrender and take insurance strategies. 
-    - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
     - [ ] Ensure master players use two hands
     - [ ] Have the code conventions be the same across all experiences, u = surrender and similar situations. 
-    - [ ] Strengthen test strategy for backend. Run pytest-cov to 95%
-    - [ ] Create an improved interface for betting strategies. 
     - [ ] Ensure that all changes to user variables are being saved in the database. 
+    -[ ] Create testing for these new abilities. 
+    - [ ] **Create the ability to run Spanish21 simulations:**
+    - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
+    - [ ] Ensure MASTER strategies in the backend are early surrender", "late surrender" and take "insurance strategies". 
+- [ ] **Game Hardening and Quality of Experience upgrades:**
+    - [ ] Create all the rules in the backend for runing Spanish 21 simulations
+    - [ ] Create all the changes in the front end and database for running Spanish 21 simulations
+    - [ ] Create an improved interface for betting strategies. 
     - [ ] Create an AI interface for betting strategies
     - [ ] Push data to Jupyter book and set up Jupyter book for analyzing play
     - [ ] In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
+    - [ ] Strengthen test strategy for backend. Run pytest-cov to 95%
+- [ ] **Switch to Django database.:**

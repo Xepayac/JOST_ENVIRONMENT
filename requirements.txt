@@ -9,3 +9,5 @@ celery
 redis
 python-dotenv
 Flask-WTF
+pytest-mock
+pytest-cov
