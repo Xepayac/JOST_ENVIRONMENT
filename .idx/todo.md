@@ -41,9 +41,9 @@ This phase focuses on building out the user-facing features and improving the ap
     - [x] Add a checkbox to the simulation page to enable/disable hand history logging.
     - [x] Update the backend to handle the new `log_hands` parameter.
     - [x] Add a download button to the results page to download the hand history.
-- [ ] **Improve Visual Design:**
-    - [ ] Research and select a lightweight CSS framework (e.g., Bootstrap, Bulma) to apply a clean and modern design to the application templates.
-    - [ ] Redesign the layout of the simulation configuration and results pages for better readability and user experience.
+- [X] **Improve Visual Design:**
+    - [X] Research and select a lightweight CSS framework (e.g., Bootstrap, Bulma) to apply a clean and modern design to the application templates.
+    - [X] Redesign the layout of the simulation configuration and results pages for better readability and user experience.
 
 - [x] **Implement CRUD for Core Entities:**
     - [x] **Establish Foundation:**
@@ -79,15 +79,18 @@ This phase focuses on building out the user-facing features and improving the ap
         - [x] Build the "Edit Playing Strategy" page.
         - [x] Implement the "Delete Playing Strategy" functionality.
 
-- [ ] **Develop Frontend Test Strategy:**
-    - [ ] Research and decide on a testing framework for Flask applications (e.g., Pytest with `pytest-flask`).
+- [x] **Develop Frontend Test Strategy:**
+    - [x] Research and decide on a testing framework for Flask applications (e.g., Pytest with `pytest-flask`).
     - [ ] Write initial tests for critical frontend routes, such as form submissions and API endpoints.
+    - [ ] Write tests for edge cases and incorrect files when building files.    
 - [ ] **Game Hardening and Quality of Experience upgrades:**
-    - [ ]  Ensure MASTER streategies in the backend are surrender and take insurance strategies. 
-     - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
-     - [ ] Ensure master players use two hands
-      - [ ] Have the code conventions be the same across all experiences, u = surrender and similar situations. 
-- [ ] Create an improved interface for betting strategies. 
-- [ ] Create an AI interface for betting strategies
-- [ ] Push data to Jupyter book and set up Jupyter book for analyzing play
-- [ ] In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
+    - [ ] Ensure MASTER strategies in the backend are surrender and take insurance strategies. 
+    - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
+    - [ ] Ensure master players use two hands
+    - [ ] Have the code conventions be the same across all experiences, u = surrender and similar situations. 
+    - [ ] Strengthen test strategy for backend. Run pytest-cov to 95%
+    - [ ] Create an improved interface for betting strategies. 
+    - [ ] Ensure that all changes to user variables are being saved in the database. 
+    - [ ] Create an AI interface for betting strategies
+    - [ ] Push data to Jupyter book and set up Jupyter book for analyzing play
+    - [ ] In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
