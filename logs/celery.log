@@ -1,10 +1,10 @@
  
  -------------- celery@firebase-jostmva-1761342297938 v5.5.3 (immunity)
 --- ***** ----- 
--- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-30 02:27:34
+-- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-30 04:26:36
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x7bf42fd63020
+- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x7a9c6fe8ab40
 - ** ---------- .> transport:   redis://localhost:6379/0
 - ** ---------- .> results:     redis://localhost:6379/0
 - *** --- * --- .> concurrency: 2 (prefork)
@@ -17,46 +17,8 @@
 [tasks]
   . jost_simulation_task
 
-[2025-10-30 02:27:34,316: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2025-10-30 02:27:34,328: INFO/MainProcess] mingle: searching for neighbors
-[2025-10-30 02:27:35,361: INFO/MainProcess] mingle: all alone
-[2025-10-30 02:27:35,398: INFO/MainProcess] --- Worker is ready. Registered tasks: ['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'jost_simulation_task', 'celery.group', 'celery.map'] ---
-[2025-10-30 02:27:35,399: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
-[2025-10-30 02:32:06,852: INFO/MainProcess] Task jost_simulation_task[39163d5f-0d2c-4cab-ae89-c065ca449f49] received
-[2025-10-30 02:32:06,857: INFO/ForkPoolWorker-2] --- Received Jost Simulation Task ---
-[2025-10-30 02:32:06,872: INFO/ForkPoolWorker-2] Running simulation for 1000000 rounds.
-[2025-10-30 02:32:06,872: INFO/ForkPoolWorker-2] Starting simulation for 1000000 rounds.
-[2025-10-30 02:32:15,458: INFO/ForkPoolWorker-2] All players are bankrupt. Ending simulation.
-[2025-10-30 02:32:15,459: INFO/ForkPoolWorker-2] Simulation finished successfully.
-[2025-10-30 02:32:15,459: INFO/ForkPoolWorker-2] --- Jost Simulation Task Finished ---
-[2025-10-30 02:32:15,471: INFO/ForkPoolWorker-2] Task jost_simulation_task[39163d5f-0d2c-4cab-ae89-c065ca449f49] succeeded in 8.614440915999694s: {'Master Player_1': {'initial_bankroll': 10000, 'final_bankroll': 0.0, 'net_gain_loss': -10000.0, 'total_wagered': 1166860.0, 'player_edge': -0.00857000839860823, 'hand_history': []}}
-
-worker: Hitting Ctrl+C again will initiate cold shutdown, terminating all running tasks!
-
-worker: Warm shutdown (MainProcess)
-
-Restarting celery worker (/home/user/jostmva/.venv/bin/celery -A frontend.blackjack_simulator.celery_worker.celery worker --loglevel=info)
- 
- -------------- celery@firebase-jostmva-1761342297938 v5.5.3 (immunity)
---- ***** ----- 
--- ******* ---- Linux-6.6.105+-x86_64-with-glibc2.39 2025-10-30 02:33:16
-- *** --- * --- 
-- ** ---------- [config]
-- ** ---------- .> app:         frontend.blackjack_simulator.celery_worker:0x78e6793ea870
-- ** ---------- .> transport:   redis://localhost:6379/0
-- ** ---------- .> results:     redis://localhost:6379/0
-- *** --- * --- .> concurrency: 2 (prefork)
--- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
---- ***** ----- 
- -------------- [queues]
-                .> celery           exchange=celery(direct) key=celery
-                
-
-[tasks]
-  . jost_simulation_task
-
-[2025-10-30 02:33:16,975: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2025-10-30 02:33:16,981: INFO/MainProcess] mingle: searching for neighbors
-[2025-10-30 02:33:17,998: INFO/MainProcess] mingle: all alone
-[2025-10-30 02:33:18,020: INFO/MainProcess] --- Worker is ready. Registered tasks: ['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'jost_simulation_task', 'celery.group', 'celery.map'] ---
-[2025-10-30 02:33:18,021: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.
+[2025-10-30 04:26:36,814: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-10-30 04:26:36,823: INFO/MainProcess] mingle: searching for neighbors
+[2025-10-30 04:26:37,842: INFO/MainProcess] mingle: all alone
+[2025-10-30 04:26:37,867: INFO/MainProcess] --- Worker is ready. Registered tasks: ['celery.backend_cleanup', 'celery.chain', 'celery.starmap', 'celery.accumulate', 'celery.chord', 'celery.chunks', 'celery.chord_unlock', 'jost_simulation_task', 'celery.group', 'celery.map'] ---
+[2025-10-30 04:26:37,868: INFO/MainProcess] celery@firebase-jostmva-1761342297938 ready.

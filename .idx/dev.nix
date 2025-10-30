@@ -12,6 +12,7 @@
     pkgs.python312Packages.pandas
     pkgs.python312Packages.pytest-cov
     pkgs.python312Packages.venvShellHook
+    pkgs.python312Packages.pytest-flask
     pkgs.redis
   ];
 

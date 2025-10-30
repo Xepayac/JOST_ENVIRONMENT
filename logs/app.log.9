@@ -1,447 +1,86 @@
-2025-10-29 20:04:36,483 INFO: Simulation config: {
-  "player": {
-    "name": "Master Player",
-    "bankroll": 10000
-  },
-  "casino": {
-    "name": "Master Casino",
-    "rules": {
-      "deck_count": 6,
-      "dealer_stands_on_soft_17": false,
-      "blackjack_payout": 1.5,
-      "allow_late_surrender": true,
-      "allow_early_surrender": false,
-      "allow_resplit_to_hands": 4,
-      "allow_double_after_split": true,
-      "allow_double_on_any_two": true,
-      "reshuffle_penetration": 75.0,
-      "offer_insurance": true,
-      "dealer_checks_for_blackjack": true
-    }
-  },
-  "playing_strategy_name": "master_playing_strategy",
-  "strategy": {
-    "hard": {
-      "21": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "20": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "19": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "18": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "17": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "16": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "15": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "14": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "13": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "12": {
-        "2": "H",
-        "3": "H",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "11": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "D",
-        "A": "D"
-      },
-      "10": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "H",
-        "A": "H"
-      },
-      "9": {
-        "2": "H",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "8": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "H",
-        "6": "H",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    },
-    "soft": {
-      "21": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "20": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "19": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "D",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "18": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "S",
-        "8": "S",
-        "9": "H",
-        "10": "H",
-        "A": "S"
-      },
-      "17": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "16": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "15": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "14": {
-        "2": "H",
-        "3": "H",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "13": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    },
-    "pairs": {
-      "A,A": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "P",
-        "9": "P",
-        "10": "P",
-        "A": "P"
-      },
-      "10,10": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "9,9": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "S",
-        "8": "P",
-        "9": "P",
-        "10": "S",
-        "A": "S"
-      },
-      "8,8": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "P",
-        "9": "P",
-        "10": "P",
-        "A": "P"
-      },
-      "7,7": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "6,6": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "5,5": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "H",
-        "A": "H"
-      },
-      "4,4": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "P",
-        "6": "P",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "3,3": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "2,2": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    }
-  },
-  "betting_strategy": {
-    "name": "Master Betting Strategy",
-    "min_bet": 10,
-    "bet_ramp": {
-      "1": 10,
-      "2": 50,
-      "3": 100,
-      "4": 200
-    }
-  },
-  "iterations": 10000,
-  "true_count_threshold": 1
-} [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:114]
-2025-10-29 20:04:36,629 INFO: Task d0f95049-e271-4702-b287-729768b4966f sent to Celery [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:120]
-2025-10-29 20:04:36,819 INFO: Checking status for task d0f95049-e271-4702-b287-729768b4966f [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:136]
-2025-10-29 20:04:36,824 INFO: Task d0f95049-e271-4702-b287-729768b4966f state is FAILURE [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:138]
-2025-10-29 20:04:36,824 ERROR: Task d0f95049-e271-4702-b287-729768b4966f failed. Reason: string indices must be integers, not 'str' [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:166]
-2025-10-29 20:06:44,113 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:06:48,739 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:07:02,141 INFO: --- Running simulation 1 --- [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:77]
-2025-10-29 20:07:02,144 INFO: Form data received: ImmutableMultiDict([('player_id', '1'), ('casino_id', '1'), ('playing_strategy_id', '1'), ('betting_strategy_id', '1'), ('iterations', '10000'), ('true_count_threshold', '1'), ('notes', '')]) [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:78]
+2025-10-30 04:49:45,679 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,438 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,563 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,563 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,716 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,716 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,716 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,788 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,788 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,788 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,788 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,892 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,892 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,892 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,892 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:16,892 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,660 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,782 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,782 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,954 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,954 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:55,954 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,025 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,025 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,025 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,025 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,112 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,112 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,112 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,112 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:50:56,112 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,081 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,238 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,238 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,376 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,376 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,376 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,469 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,469 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,469 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,469 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,557 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,557 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,557 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,557 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:54:17,557 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,467 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,577 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,577 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,737 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,737 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,737 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,800 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,800 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,800 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,800 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,871 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,871 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,871 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,871 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:55:34,871 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,337 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,441 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,441 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,578 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,578 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,578 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,636 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,636 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,636 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,636 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,702 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,702 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,702 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,702 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:56:23,702 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,625 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,749 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,749 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,928 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,928 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,928 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,996 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,996 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,996 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-30 04:57:06,996 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
