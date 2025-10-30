@@ -45,14 +45,49 @@ This phase focuses on building out the user-facing features and improving the ap
     - [ ] Research and select a lightweight CSS framework (e.g., Bootstrap, Bulma) to apply a clean and modern design to the application templates.
     - [ ] Redesign the layout of the simulation configuration and results pages for better readability and user experience.
 
-- [ ] **Implement CRUD for Core Entities:**
-    - [ ] Create a new Flask Blueprint for managing application entities.
-    - [ ] Build a web interface (routes, templates, and forms) to allow users to **Create, Read, Update, and Delete** the following:
-        - [ ] Players
-        - [ ] Casinos
-        - [ ] Betting Strategies
-        - [ ] Playing Strategies
+- [x] **Implement CRUD for Core Entities:**
+    - [x] **Establish Foundation:**
+        - [x] Create a new Flask Blueprint for management (`management_bp`) in a new file: `frontend/blackjack_simulator/management.py`.
+        - [x] Register the new blueprint in the application factory in `app.py`.
+        - [x] Add navigation links to the main layout (`layout.html`) to access the new management pages.
+    - [x] **Build Player Management:** (Simplest First)
+        - [x] Create a Flask-WTF form for the `Player` model.
+        - [x] Build the "List Players" page (`/management/players`).
+        - [x] Build the "Create Player" page (`/management/players/new`) and handle form submission.
+        - [x] Build the "Edit Player" page (`/management/players/<id>/edit`) and handle form submission.
+        - [x] Implement the "Delete Player" functionality.
+    - [x] **Build Casino Management:**
+        - [x] Create a Flask-WTF form for the `Casino` model (handling boolean fields with checkboxes).
+        - [x] Build the "List Casinos" page.
+        - [x] Build the "Create Casino" page.
+        - [x] Build the "Edit Casino" page.
+        - [x] Implement the "Delete Casino" functionality.
+    - [x] **Build Betting Strategy Management:**
+        - [x] Create a Flask-WTF form for the `BettingStrategy` model.
+        - [x] Use a `TextAreaField` for the `bet_ramp` JSON data.
+        - [x] **Crucial:** Add a custom validator to the form to ensure the text in the `bet_ramp` field is valid JSON and matches the expected data structure (a dictionary of string keys to number values, e.g., `{"1": 10, "2": 50}`). This prevents bad data from entering the database.
+        - [x] Build the "List Betting Strategies" page.
+        - [x] Build the "Create Betting Strategy" page.
+        - [x] Build the "Edit Betting Strategy" page.
+        - [x] Implement the "Delete Betting Strategy" functionality.
+    - [x] **Build Playing Strategy Management:** (Most Complex)
+        - [x] Create a Flask-WTF form for the `PlayingStrategy` model.
+        - [x] Use three separate `TextAreaField`s for `hard_total_actions`, `soft_total_actions`, and `pair_splitting_actions`.
+        - [x] **Crucial:** Add custom validators for each of the three text areas to ensure the input is valid JSON and matches the complex nested structure expected by the simulation engine. This is the most critical validation step to ensure the application remains stable.
+        - [x] Build the "List Playing Strategies" page.
+        - [x] Build the "Create Playing Strategy" page.
+        - [x] Build the "Edit Playing Strategy" page.
+        - [x] Implement the "Delete Playing Strategy" functionality.
 
 - [ ] **Develop Frontend Test Strategy:**
     - [ ] Research and decide on a testing framework for Flask applications (e.g., Pytest with `pytest-flask`).
     - [ ] Write initial tests for critical frontend routes, such as form submissions and API endpoints.
+- [ ] **Game Hardening and Quality of Experience upgrades:**
+    - [ ]  Ensure MASTER streategies in the backend are surrender and take insurance strategies. 
+     - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
+     - [ ] Ensure master players use two hands
+      - [ ] Have the code conventions be the same across all experiences, u = surrender and similar situations. 
+- [ ] Create an improved interface for betting strategies. 
+- [ ] Create an AI interface for betting strategies
+- [ ] Push data to Jupyter book and set up Jupyter book for analyzing play
+- [ ] In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
