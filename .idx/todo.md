@@ -85,16 +85,35 @@ This phase focuses on building out the user-facing features and improving the ap
     - [X] Write tests for edge cases and incorrect files when building files. 
     - [X] Write a full suite of pytests guided py pytest-cov
 - [ ] **Game Hardening and Quality of Experience upgrades:**
-    - [ ] Frontend to backend: Have the code conventions be the same across all experiences, u = surrender and similar situations. 
-    - [ ] frontend: Ensure that all changes to user variables are being saved in the database. 
-    - [ ] backend, Ensure master players use two hands when playing. 
+    - [x] Frontend to backend: Have the code conventions be the same across all experiences, u = surrender and similar situations. 
+    - [ ] Start a Planning Session: frontend: Ensure that all changes to user variables are being saved in the database. I play this game, when I open the game, it deletes all previous simulations and variables and I start from the defaults. QUESTION: is this even necesary in the development environment? 
+    - [ ] backend, Ensure master players use two hands when playing. Presently our master players are only using one hand when playing. We probably need to upgrade the betting strategies to be able to play two hands at once. 
     - [ ] backend: Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
     - [ ] backend: Ensure MASTER strategies in the backend are early surrender", "late surrender" and take "insurance strategies". 
-    - [ ] Create testing for these new abilities. 
+    - [ ] Ensure that we can have playing strategies that work with the true count. This may be difficult, or we may already have this ability. THis is different than developing betting strategies that depend on the true count. 
     - [ ] frontend: In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
+    - [ ] Create testing for these new abilities. 
+
+- [ ] **Enable Frontend-Driven Playing Strategy Generation:**
+    - [ ] **Objective:** Adapt the existing `strategy_generator.py` so that users can generate new, optimal playing strategies directly from the web interface based on a selected set of casino rules.
+    - [ ] **Sub-Phase 1: Backend Adaptation**
+        - [ ] Refactor `strategy_generator.py` so its core logic can be imported and called as a function from the main application.
+        - [ ] Integrate this function into a Celery task (`celery_worker.py`) to allow for long-running, asynchronous generation without blocking the web server.
+    - [ ] **Sub-Phase 2: Frontend UI**
+        - [ ] Design and create a new page (`/generation/playing-strategy/new`) where users can select casino rules (e.g., H17/S17, number of decks) for the new strategy.
+        - [ ] Add a form and view to trigger the Celery background task.
+        - [ ] Develop a status page to show the progress of the generation task.
+        - [ ] Upon completion, automatically save the newly generated strategy and display it to the user.
+
+Update github. Read ./idx/Git.md
+
 - [ ] **Upgrade to use Spanish 21 rules.**
     - [ ] Create all the rules in the backend for runing Spanish 21 simulations
     - [ ] Create all the changes in the front end and database for running Spanish 21 simulations
+
+Update github. Read ./idx/Git.md
+
+
 - [ ] **Create an improved interface to betting strategies.**
   - [ ]Phase 2.5, Sub-Phase 1: Backend Engine Enhancement for Rule-Based Strategies
 
