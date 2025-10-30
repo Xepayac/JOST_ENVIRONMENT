@@ -1,456 +1,111 @@
-2025-10-29 20:26:44,765 INFO: Simulation config: {
-  "player": {
-    "name": "Master Player",
-    "bankroll": 10000
-  },
-  "casino": {
-    "name": "Master Casino",
-    "rules": {
-      "deck_count": 6,
-      "dealer_stands_on_soft_17": false,
-      "blackjack_payout": 1.5,
-      "allow_late_surrender": true,
-      "allow_early_surrender": false,
-      "allow_resplit_to_hands": 4,
-      "allow_double_after_split": true,
-      "allow_double_on_any_two": true,
-      "reshuffle_penetration": 75.0,
-      "offer_insurance": true,
-      "dealer_checks_for_blackjack": true
-    }
-  },
-  "playing_strategy_name": "master_playing_strategy",
-  "strategy": {
-    "hard": {
-      "21": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "20": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "19": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "18": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "17": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "16": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "15": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "14": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "13": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "12": {
-        "2": "H",
-        "3": "H",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "11": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "D",
-        "A": "D"
-      },
-      "10": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "H",
-        "A": "H"
-      },
-      "9": {
-        "2": "H",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "8": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "H",
-        "6": "H",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    },
-    "soft": {
-      "21": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "20": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "19": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "D",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "18": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "S",
-        "8": "S",
-        "9": "H",
-        "10": "H",
-        "A": "S"
-      },
-      "17": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "16": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "15": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "14": {
-        "2": "H",
-        "3": "H",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "13": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "D",
-        "6": "D",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    },
-    "pairs": {
-      "A,A": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "P",
-        "9": "P",
-        "10": "P",
-        "A": "P"
-      },
-      "10,10": {
-        "2": "S",
-        "3": "S",
-        "4": "S",
-        "5": "S",
-        "6": "S",
-        "7": "S",
-        "8": "S",
-        "9": "S",
-        "10": "S",
-        "A": "S"
-      },
-      "9,9": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "S",
-        "8": "P",
-        "9": "P",
-        "10": "S",
-        "A": "S"
-      },
-      "8,8": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "P",
-        "9": "P",
-        "10": "P",
-        "A": "P"
-      },
-      "7,7": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "6,6": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "5,5": {
-        "2": "D",
-        "3": "D",
-        "4": "D",
-        "5": "D",
-        "6": "D",
-        "7": "D",
-        "8": "D",
-        "9": "D",
-        "10": "H",
-        "A": "H"
-      },
-      "4,4": {
-        "2": "H",
-        "3": "H",
-        "4": "H",
-        "5": "P",
-        "6": "P",
-        "7": "H",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "3,3": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      },
-      "2,2": {
-        "2": "P",
-        "3": "P",
-        "4": "P",
-        "5": "P",
-        "6": "P",
-        "7": "P",
-        "8": "H",
-        "9": "H",
-        "10": "H",
-        "A": "H"
-      }
-    }
-  },
-  "betting_strategy": {
-    "name": "Master Betting Strategy",
-    "min_bet": 10,
-    "bet_ramp": {
-      "1": 10,
-      "2": 50,
-      "3": 100,
-      "4": 200
-    }
-  },
-  "iterations": 5,
-  "true_count_threshold": 1
-} [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:114]
-2025-10-29 20:26:44,797 INFO: Task 0b6cd090-0348-4693-a5ca-76781867f558 sent to Celery [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:120]
-2025-10-29 20:26:44,899 INFO: Checking status for task 0b6cd090-0348-4693-a5ca-76781867f558 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:136]
-2025-10-29 20:26:44,902 INFO: Task 0b6cd090-0348-4693-a5ca-76781867f558 state is SUCCESS [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:138]
-2025-10-29 20:26:44,902 INFO: Task 0b6cd090-0348-4693-a5ca-76781867f558 succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:141]
-2025-10-29 20:26:44,906 INFO: Found simulation 1 for task 0b6cd090-0348-4693-a5ca-76781867f558. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:148]
-2025-10-29 20:26:44,933 INFO: Result 2 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:162]
-2025-10-29 20:37:14,418 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:38:37,712 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:38:42,196 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:39:13,091 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
-2025-10-29 20:39:13,273 INFO: Task acfb438c-2659-4a78-b3b9-ae000c776aa6 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
-2025-10-29 20:39:13,448 ERROR: Task acfb438c-2659-4a78-b3b9-ae000c776aa6 failed. Reason: name 'player_' is not defined [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:165]
-2025-10-29 20:41:09,481 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:41:14,288 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
-2025-10-29 20:41:31,217 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
-2025-10-29 20:41:31,424 INFO: Task 2b409886-4ba6-47d0-8a1e-8b26889fbe8f sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
-2025-10-29 20:41:31,564 INFO: Task 2b409886-4ba6-47d0-8a1e-8b26889fbe8f succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:134]
+2025-10-29 20:41:31,573 INFO: Found simulation 1 for task 2b409886-4ba6-47d0-8a1e-8b26889fbe8f. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:146]
+2025-10-29 20:41:31,626 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:161]
+2025-10-29 20:41:31,682 ERROR: Exception on /results/1 [GET] [in /home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/routes.py", line 182, in result_page
+    return render_template('result_details.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/result_details.html", line 1, in top-level template code
+    {% extends 'layout.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/layout.html", line 34, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/result_details.html", line 43, in block 'content'
+    <p><strong><i class="fas fa-money-bill-wave"></i> Final Bankroll:</strong> ${{ "%.2f"|format(summary.final_bankroll) }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'Master Player'
+2025-10-29 20:43:02,020 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
+2025-10-29 20:43:06,614 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
+2025-10-29 20:43:28,622 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
+2025-10-29 20:43:28,793 INFO: Task 91176295-cb74-48cd-991d-476fea319974 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
+2025-10-29 20:43:28,904 INFO: Task 91176295-cb74-48cd-991d-476fea319974 succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:134]
+2025-10-29 20:43:28,919 INFO: Found simulation 1 for task 91176295-cb74-48cd-991d-476fea319974. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:146]
+2025-10-29 20:43:28,955 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:161]
+2025-10-29 20:43:29,028 ERROR: Exception on /results/1 [GET] [in /home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/routes.py", line 182, in result_page
+    return render_template('result_details.html',
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/result_details.html", line 1, in top-level template code
+    {% extends 'layout.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/layout.html", line 34, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/result_details.html", line 42, in block 'content'
+    <p><strong><i class="fas fa-money-bill-wave"></i> Final Bankroll:</strong> ${{ "%.2f"|format(outcomes.final_bankroll) }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/filters.py", line 1043, in do_format
+    return soft_str(value) % (kwargs or args)
+           ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'final_bankroll'
+2025-10-29 20:46:23,780 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
+2025-10-29 20:46:28,281 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:165]
+2025-10-29 20:46:46,678 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
+2025-10-29 20:46:46,854 INFO: Task 297ae6fc-0e08-4875-8244-c1a49d3ebf9b sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
+2025-10-29 20:46:46,974 INFO: Task 297ae6fc-0e08-4875-8244-c1a49d3ebf9b succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:134]
+2025-10-29 20:46:46,979 INFO: Found simulation 1 for task 297ae6fc-0e08-4875-8244-c1a49d3ebf9b. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:151]
+2025-10-29 20:46:47,026 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:166]
+2025-10-29 21:45:46,110 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-29 21:45:50,928 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-29 21:46:48,786 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
+2025-10-29 21:46:48,972 INFO: Task a927c6af-e598-46a9-b86d-71ab6452f512 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
+2025-10-29 21:46:49,104 INFO: Task a927c6af-e598-46a9-b86d-71ab6452f512 succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:134]
+2025-10-29 21:46:49,118 INFO: Found simulation 1 for task a927c6af-e598-46a9-b86d-71ab6452f512. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:151]
+2025-10-29 21:46:49,151 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:166]
+2025-10-29 23:05:32,135 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-29 23:05:37,003 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]
+2025-10-29 23:06:54,774 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:72]
+2025-10-29 23:06:54,972 INFO: Task f3144ae9-cf00-4149-9175-a93810a9c6f1 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:115]
+2025-10-29 23:06:55,137 INFO: Task f3144ae9-cf00-4149-9175-a93810a9c6f1 succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:134]
+2025-10-29 23:06:55,151 INFO: Found simulation 1 for task f3144ae9-cf00-4149-9175-a93810a9c6f1. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:151]
+2025-10-29 23:06:55,190 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:166]
+2025-10-29 23:12:01,611 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:167]

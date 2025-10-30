@@ -8,3 +8,4 @@ Flask-SQLAlchemy
 celery
 redis
 python-dotenv
+Flask-WTF
