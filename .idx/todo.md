@@ -85,19 +85,79 @@ This phase focuses on building out the user-facing features and improving the ap
     - [X] Write tests for edge cases and incorrect files when building files. 
     - [X] Write a full suite of pytests guided py pytest-cov
 - [ ] **Game Hardening and Quality of Experience upgrades:**
-    - [ ] Ensure master players use two hands
-    - [ ] Have the code conventions be the same across all experiences, u = surrender and similar situations. 
-    - [ ] Ensure that all changes to user variables are being saved in the database. 
-    -[ ] Create testing for these new abilities. 
-    - [ ] **Create the ability to run Spanish21 simulations:**
-    - [ ] Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
-    - [ ] Ensure MASTER strategies in the backend are early surrender", "late surrender" and take "insurance strategies". 
-- [ ] **Game Hardening and Quality of Experience upgrades:**
+    - [ ] Frontend to backend: Have the code conventions be the same across all experiences, u = surrender and similar situations. 
+    - [ ] frontend: Ensure that all changes to user variables are being saved in the database. 
+    - [ ] backend, Ensure master players use two hands when playing. 
+    - [ ] backend: Ensure master casinos in backend have Insurance, Later Surrender and Early Surrender. 
+    - [ ] backend: Ensure MASTER strategies in the backend are early surrender", "late surrender" and take "insurance strategies". 
+    - [ ] Create testing for these new abilities. 
+    - [ ] frontend: In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
+- [ ] **Upgrade to use Spanish 21 rules.**
     - [ ] Create all the rules in the backend for runing Spanish 21 simulations
     - [ ] Create all the changes in the front end and database for running Spanish 21 simulations
-    - [ ] Create an improved interface for betting strategies. 
-    - [ ] Create an AI interface for betting strategies
-    - [ ] Push data to Jupyter book and set up Jupyter book for analyzing play
-    - [ ] In results, give as much information that you can give with the default information. money per hour, N0, Percent chance of loss?
+- [ ] **Create an improved interface to betting strategies.**
+  - [ ]Phase 2.5, Sub-Phase 1: Backend Engine Enhancement for Rule-Based Strategies
+
+    Explanation: The current jost_engine reads a simple mapping of true count to bet size. It must be upgraded to understand a prioritized list of rules with multiple conditions.
+    - [ ]Data Model: Design a new JSON schema for rule-based strategies. It should support a list of rules, each with a priority, a set of conditions (e.g., true_count_min, true_count_max, last_hand_result: "win"), and an action (e.g., bet_amount).
+    - [ ]Engine Logic: Modify jost_engine.betting_strategy to parse and execute the new rule-based format. The engine must iterate through the rules by priority, check all conditions for a match, and apply the corresponding bet action.
+    - [ ]Testing: Write new unit tests in backend/tests/ to validate the rule-based engine, including tests for priority, condition checking (win/loss/push), and default fallbacks.
     - [ ] Strengthen test strategy for backend. Run pytest-cov to 95%
 - [ ] **Switch to Django database.:**
+-     - [ ] **Switch to Django database.:**
++     - [ ] **Architectural Migration: Switch Frontend from Flask to Django**
++         - [ ] **Pre-computation:** Spike to create a proof-of-concept for the switch.
++         - [ ] **Decision Point:** Final go/no-go decision based on multi-user feature prioritization.
++         - [ ] **Phase 1: Core Setup**
++             - [ ] Initialize new Django project structure.
++             - [ ] Implement Django's user authentication and authorization system (`django.contrib.auth`).
++             - [ ] Re-define SQLAlchemy models (`models.py`) as Django ORM models.
++             - [ ] Generate and run initial database migrations.
++         - [ ] **Phase 2: Application Logic Migration**
++             - [ ] Convert Flask views/routes (`routes.py`) to Django views and URL patterns.
++             - [ ] Replace Flask-WTF forms (`forms.py`) with Django Forms.
++             - [ ] Adapt Jinja2 templates to Django's template syntax.
++             - [ ] Re-integrate the `jost_engine` backend with the new Django views.
++         - [ ] **Phase 3: Feature Parity & Enhancement**
++             - [ ] Configure the Django Admin to replace manual CRUD pages (for Casinos, Players, etc.).
++             - [ ] Re-wire Celery worker (`celery_worker.py`) to integrate with Django for async simulations.
++             - [ ] Write a comprehensive new test suite for the Django frontend.
+
+
+Phase 2.5, Implementing Advanced Betting Strategy Interface. 
+
+Goal: Transition from simple, static betting strategies to a dynamic, user-configurable system. This is the foundational work required before an AI can be used to generate strategies, as it creates the structure and interface for defining, storing, and simulating complex, rule-based betting patterns.
+
+ - [ ]Phase 2.5, Sub-Phase 1: Backend Engine Enhancement for Rule-Based Strategies
+
+    Explanation: The current jost_engine reads a simple mapping of true count to bet size. It must be upgraded to understand a prioritized list of rules with multiple conditions.
+    - [ ]Data Model: Design a new JSON schema for rule-based strategies. It should support a list of rules, each with a priority, a set of conditions (e.g., true_count_min, true_count_max, last_hand_result: "win"), and an action (e.g., bet_amount).
+    - [ ]Engine Logic: Modify jost_engine.betting_strategy to parse and execute the new rule-based format. The engine must iterate through the rules by priority, check all conditions for a match, and apply the corresponding bet action.
+    - [ ]Testing: Write new unit tests in backend/tests/ to validate the rule-based engine, including tests for priority, condition checking (win/loss/push), and default fallbacks.
+
+
+- [ ] Sub-Phase 2: Dynamic Strategy Builder UI
+
+Explanation: Create the user-facing interface that allows players to build, view, and manage their complex betting strategies without editing JSON files by hand.
+ - [ ]Database Models: Extend frontend/blackjack_simulator/models.py with new SQLAlchemy models: BettingStrategy (with a name and description) and StrategyRule (with a foreign key to BettingStrategy, priority, conditions, and action).
+ - [ ]Forms & Routes: Create new Flask routes in routes.py and Flask-WTF forms in forms.py for creating, editing, and listing betting strategies (/strategies/betting/new, /strategies/betting/<id>/edit, etc.).
+ - [ ]Builder Template: Develop the main HTML template (create_betting_strategy.html). This will require JavaScript to allow users to dynamically add, remove, and re-order the rules for a given strategy.
+ - [ ]Integration: Update the "New Simulation" page to populate a dropdown with the user's saved BettingStrategy records from the database, allowing them to be used in the jost_engine.
+Goal: Build upon the Dynamic Strategy Builder by adding a "Generative AI" feature. This AI will use the simulation engine as a sandbox to discover optimal betting strategies based on high-level user goals, such as maximizing profit while minimizing detection risk.
+
+Phase 3: AI powered Strategy Generation
+Goal: Build upon the Dynamic Strategy Builder by adding a "Generative AI" feature. This AI will use the simulation engine as a sandbox to discover optimal betting strategies based on high-level user goals, such as maximizing profit while minimizing detection risk.
+
+- [ ]Sub-Phase 1: AI Core & Backend Integration
+
+Explanation: Develop the core AI/ML logic that can intelligently search for an optimal strategy. This involves running thousands of simulations and evaluating the outcomes.
+    - [ ]Research & Scoping: Choose the AI methodology. A Genetic Algorithm is a strong candidate for evolving a set of rules. Define the "fitness function" that will score a strategy's performance based on user goals (e.g., profit, risk-of-ruin, camouflage).
+    - [ ]AI Orchestrator Service: Create a new module responsible for the AI process. It will generate populations of strategies (in our new JSON format), run simulations for each via jost_engine, score them with the fitness function, and create the next generation of strategies.
+    - [ ]Asynchronous Task: Integrate the AI orchestrator into a long-running Celery task in celery_worker.py. This is critical as the generation process could take minutes or hours.
+ 
+- [ ]Sub-Phase 2: AI Generation Frontend UI
+
+Explanation: Create the user interface for the AI feature. Users will define their goals here, launch the generation process, and view the results.
+    - [ ]"Generate Strategy" Page: Create a new route and template where users define their objectives. This should use simple inputs, like sliders for "Aggressiveness vs. Safety" or "Profit vs. Camouflage".
+    - [ ]Task Initiation: The form submission will trigger the new Celery task and redirect the user to a status page.
+    - [ ]Status & Results: The status page will show the progress of the AI task. Upon completion, the AI's best-discovered strategy will be automatically saved as a new entry in the BettingStrategy table. The user will be redirected to the "Strategy Builder" edit page to view, analyze, and refine the AI-generated rules.
