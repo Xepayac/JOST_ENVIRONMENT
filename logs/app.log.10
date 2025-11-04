@@ -1,0 +1,102 @@
+2025-10-31 00:32:08,175 ERROR: Exception on /management [GET] [in /home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/management.py", line 7, in index
+    return render_template('management_index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/management_index.html", line 1, in top-level template code
+    {% extends "layout.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/layout.html", line 37, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/management_index.html", line 7, in block 'content'
+    <a href="{{ url_for('management.list_players') }}" class="list-group-item list-group-item-action">Players</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'management.list_players'. Did you mean 'management.index' instead?
+2025-10-31 00:32:31,328 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:76]
+2025-10-31 00:32:31,511 INFO: Task 5365342a-8495-4829-8622-33e8e07a09a4 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:121]
+2025-10-31 00:32:31,829 ERROR: Task 5365342a-8495-4829-8622-33e8e07a09a4 failed. Reason: Invalid action 's' found in strategy file. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:178]
+2025-10-31 00:36:44,302 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:159]
+2025-10-31 00:37:15,172 INFO: Processing simulation 1... [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:76]
+2025-10-31 00:37:15,362 INFO: Task 9e89923e-3f3d-417a-bbd3-d39d4425e1e0 sent to Celery for simulation 1 [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:121]
+2025-10-31 00:37:15,892 INFO: Task 9e89923e-3f3d-417a-bbd3-d39d4425e1e0 succeeded. Processing results. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:142]
+2025-10-31 00:37:15,902 INFO: Found simulation 1 for task 9e89923e-3f3d-417a-bbd3-d39d4425e1e0. Creating result. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:159]
+2025-10-31 00:37:15,946 INFO: Result 1 created for simulation 1. Redirecting. [in /home/user/jostmva/frontend/blackjack_simulator/routes.py:174]
+2025-10-31 03:23:38,058 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:159]
+2025-10-31 03:24:16,113 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:159]
+2025-10-31 03:25:14,066 INFO: Blackjack Simulator startup [in /home/user/jostmva/frontend/blackjack_simulator/app.py:159]
+2025-10-31 03:25:26,908 ERROR: Exception on /management [GET] [in /home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/management.py", line 7, in index
+    return render_template('management_index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/management_index.html", line 1, in top-level template code
+    {% extends "layout.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/layout.html", line 37, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/frontend/blackjack_simulator/templates/management_index.html", line 7, in block 'content'
+    <a href="{{ url_for('management.list_players') }}" class="list-group-item list-group-item-action">Players</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/jostmva/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'management.list_players'. Did you mean 'management.index' instead?

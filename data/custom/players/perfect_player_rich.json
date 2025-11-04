@@ -1,0 +1,12 @@
+{
+    "name": "Perfect Player (Rich)",
+    "bankroll": 1000000,
+    "is_ai": true,
+    "playing_strategy": "auto",
+    "betting_strategy": {
+        "name": "FlatBettingStrategy",
+        "params": {
+            "bet_amount": 100
+        }
+    }
+}

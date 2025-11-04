@@ -1,0 +1,10 @@
+pip
+autopep8
+Django
+pandas
+celery
+redis
+python-dotenv
+pytest-mock
+pytest-cov
+django-celery-results

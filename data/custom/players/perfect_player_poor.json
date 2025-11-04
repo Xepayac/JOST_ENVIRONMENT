@@ -1,0 +1,6 @@
+{
+  "name": "perfect_player_poor",
+  "bankroll": 500,
+  "playing_strategy": "auto",
+  "betting_strategy": "basic_betting"
+}

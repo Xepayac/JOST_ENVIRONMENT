@@ -1,0 +1,13 @@
+{
+    "name": "Two Hands True Count",
+    "type": "MasterBettingStrategy",
+    "bet_spread": 100,
+    "min_bet": 10,
+    "num_hands": 2,
+    "bet_ramp": {
+        "1": 10,
+        "2": 50,
+        "3": 100,
+        "4": 200
+    }
+}

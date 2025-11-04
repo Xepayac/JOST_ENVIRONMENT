@@ -1,0 +1,14 @@
+{
+  "name": "True Count Betting",
+  "parent": "master_betting_strategy",
+  "type": "MasterBettingStrategy",
+  "bet_ramp": {
+    "-Infinity": 1,
+    "2": 2,
+    "3": 4,
+    "4": 6,
+    "5": 8,
+    "6": 10,
+    "7": 12
+  }
+}

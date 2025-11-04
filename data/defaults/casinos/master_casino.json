@@ -1,0 +1,16 @@
+{
+    "name": "Master Casino",
+    "deck_count": 6,
+    "hit_on_soft_17": true,
+    "blackjack_payout": 1.5,
+    "allow_resplit_to_hands": 4,
+    "allow_resplit_aces": true,
+    "hit_split_aces": false,
+    "allow_early_surrender": false,
+    "allow_late_surrender": true,
+    "DAS": true,
+    "double_down_restrictions": ["any"],
+    "reshuffle_penetration": 75,
+    "offer_insurance": true,
+    "dealer_checks_for_blackjack": true
+}
