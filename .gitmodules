@@ -1,3 +1,6 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/Xepayac/JOST_DJANGO_FRONTEND.git
+	url = https://github.com/Xepayac/JOST_DJANGO_FRONTEND
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Xepayac/JOST_ENGINE_7
