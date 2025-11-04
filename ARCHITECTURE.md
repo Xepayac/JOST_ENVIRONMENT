@@ -1,10 +1,10 @@
-# Architectural Plan: The JOST Blackjack Product Ecosystem (Federated Model)
+# Architectural Plan: The JOST Blackjack Product Ecosystem
 
 ## 1. Executive Summary & Vision
 
 This document outlines the definitive architectural plan for the JOST Blackjack product ecosystem. This architecture is designed to support a suite of interconnected applications, ensure scientific integrity, protect user data sovereignty, and provide a scalable, commercial-grade backend.
 
-**The Vision:** To create a unified platform where a user has a single identity across a free-to-play desktop game, multiple mobile training apps, and a powerful, web-based simulation service. User-generated content, such as custom strategies, will be stored on the user's local device but can be seamlessly used by our backend simulation engine. The backend's primary role is to authenticate users, authorize paid features, and manage a high-throughput queue of simulation jobs.
+**The Vision:** To create a unified platform where a user has a single identity across a free-to-play desktop game, multiple mobile training apps, and a powerful, web-based simulation service. The backend's primary role is to authenticate users, authorize paid features, and manage a high-throughput queue of simulation jobs.
 
 ---
 
@@ -17,47 +17,34 @@ This document outlines the definitive architectural plan for the JOST Blackjack 
 
 ---
 
-## 3. The Role of the Celery Worker & Message Broker
+## 3. The "Simple Messenger" Architecture (Current Refactor)
 
-The Celery worker is the critical piece of "plumbing" that connects our fast, user-facing API to the slow, powerful `jost_engine`. Its role evolves as the platform scales.
+Our top priority is to refactor the simulation workflow to be more robust and scalable, permanently fixing issues with the previous data contract. This new plan, "The Simple Messenger," simplifies the worker's role and creates a clear, database-centric data flow. This approach replaces the previous "Temporary File Bridge" mechanism.
 
-### **Phase 1 (Current): The "Trusted Messenger"**
+### Workflow:
 
-In the current monolithic architecture, the Celery worker's job is to be a simple and reliable messenger.
+1.  **Job Creation & Persistence:** A user submits a simulation request through the Django frontend. The Django view immediately creates a `SimulationJob` record in the database. This record contains a unique `job_id` (UUID), the user's ID, a `status` field (e.g., "PENDING"), and the full JSON input for the simulation in a `request_data` field.
+2.  **Task Queuing:** The view then places *only* the `job_id` into the Redis queue for Celery. This is a lightweight message that simply points to the persisted job.
+3.  **Worker Task Execution:** A Celery worker, running as a separate process, picks up the `job_id` from the queue.
+4.  **Database Bridge to Engine:** The Celery task's sole responsibility is to import and call a new function in the backend, `run_simulation_from_db(job_id)`, passing the ID it received.
+5.  **Engine Data Access:** The `jost_engine`'s `run_simulation_from_db` function contains the logic to connect to the Django database, fetch the `SimulationJob` record using the `job_id`, and retrieve the simulation parameters from the `request_data` field.
+6.  **Simulation & Results Storage:** The engine runs the simulation using the retrieved parameters. Upon completion, it saves the JSON results back to the `result_data` field of the same `SimulationJob` record and updates the `status` to "COMPLETE".
+7.  **Result Display:** The user can then view the results on a dedicated page, which queries the `SimulationJob` model to fetch and display the `result_data`.
 
-*   **Technology:** We use **Redis** as our message broker. It is lightweight, fast, and perfect for a single-server development setup, as configured in `start-background.sh`.
-*   **Workflow:**
-    1.  The Django view receives a request and places a `job_id` into the Redis queue.
-    2.  The Celery worker, running as a separate process, picks up this `job_id`.
-    3.  Because it is a trusted, internal component, the worker has the credentials to access our database. It uses the `job_id` to fetch the full simulation parameters.
-    4.  It then delegates the job to the `jost_engine`.
-*   **Benefit:** This decouples the long-running simulation from the web request, ensuring the user interface remains responsive.
+### Benefits:
 
-### **Phase 4 (Scaling): The "Engine Room Foreman"**
-
-When we scale to a multi-server "Simulation Service," the worker's role remains simple, but the underlying technology becomes more robust.
-
-*   **Technology:** We will upgrade our message broker from Redis to an enterprise-grade solution like **RabbitMQ** or **Google Cloud Pub/Sub**.
-*   **Why Upgrade?**
-    *   **Durability:** RabbitMQ guarantees that if a user pays for a simulation, their job request will *never* be lost, even if the server crashes.
-    *   **Reliability:** It requires workers to send an "acknowledgment" (ACK) after a job is successfully completed. If a worker crashes mid-simulation, the job is automatically put back on the queue for another worker to pick up.
-    *   **Advanced Routing:** We can create priority queues (e.g., for paying users) or route different job types to specialized workers.
-    *   **Visibility:** RabbitMQ provides a detailed management interface to monitor the health and throughput of our simulation service.
-*   **Workflow:** The worker's core logic remains the same: it pulls a `job_id` from the queue and delegates the task. However, the guarantees provided by the new broker make the entire system vastly more reliable and scalable.
+*   **Decoupling:** This architecture decouples the long-running simulation from the web request, ensuring the user interface remains responsive.
+*   **Reliability:** By persisting the complete job details in the database *before* queuing, we create a durable system. The message in the queue is disposable; the database record is the source of truth.
+*   **Clean Contract:** It establishes a clean and robust data contract. The Django application is responsible for managing the database, and the `jost_engine` is responsible for computation, with a well-defined "database bridge" connecting them.
 
 ---
 
-## 4. The "Round Trip" Data Flow: The Definitive Workflow
-(This section remains the same, detailing the job creation, submission, and retrieval process)
-
----
-
-## 5. The "How": Detailed Phased Implementation Plan
+## 4. The "How": Detailed Phased Implementation Plan
 
 This is a high-level roadmap for building the full ecosystem.
 
 ### **Phase 1: Solidify the Monolith (Current Work)**
-- [X] **1.1: Complete the "Database Bridge" Refactor:** (The plan is finalized)
+- [ ] **1.1: Complete the "Database Bridge" Refactor:** (The plan is finalized and documented above).
 - [ ] **1.2: Build a Robust Test Suite:**
 
 ### **Phase 2: Evolve the Monolith into an API**
@@ -82,7 +69,7 @@ This is a high-level roadmap for building the full ecosystem.
 
 ## Appendix: Feature Backlog
 
-*This section contains a backlog of detailed feature ideas and enhancements for future development, migrated from the old `.idx/todo.md` file.*
+*This section contains a backlog of detailed feature ideas and enhancements for future development.*
 
 ### 1. Backend Engine Enhancements (`jost_engine`)
 

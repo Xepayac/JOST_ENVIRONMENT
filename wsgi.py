@@ -1,3 +1,7 @@
-from frontend.blackjack_simulator.app import create_app
+import os
 
-app = create_app()
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'frontend.settings')
+
+application = get_wsgi_application()

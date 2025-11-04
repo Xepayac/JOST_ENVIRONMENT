@@ -21,7 +21,7 @@ sleep 2 # Give Redis a moment to initialize
 echo "Changing to frontend directory to start Celery worker..."
 cd frontend
 # Using nohup to ensure the worker runs in the background
-nohup celery -A jost_platform.celery worker --loglevel=info > ../logs/celery.log 2>&1 &
+nohup celery -A frontend.celery worker --loglevel=info > ../logs/celery.log 2>&1 &
 echo "Celery worker started successfully in the background."
 cd ..
 

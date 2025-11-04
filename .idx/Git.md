@@ -1,39 +1,25 @@
 # Git Repository Status
 
-This project utilizes a multi-repository structure, with a main repository and two sub-repositories for the `frontend` and `backend` components.
+This project is structured with a main repository and two submodules: `frontend` and `backend`.
 
-## Main Repository
+## Main Repository (`JOST_ENVIRONMENT`)
 
+*   **URL:** `https://github.com/Xepayac/JOST_ENVIRONMENT`
 *   **Branch:** `main`
-*   **Status:** Up to date with `origin/main`.
-*   **Uncommitted Changes:**
-    *   **Modified:**
-        - `.gitignore`
-        - `ARCHITECTURE.md`
-        - `README.md`
-    *   **Untracked:**
-        - `backend/` (sub-repository)
-        - `frontend/` (sub-repository)
-        - `celery.log`
-        - `dump.rdb`
-        - `todo.md`
-        - `worker_tasks.log`
+*   **Status:** The main repository is configured to track the `frontend` and `backend` repositories as submodules.
 
-## `backend` Repository
+## Submodules
 
+### `backend` (`JOST_ENGINE_7`)
+
+*   **URL:** `https://github.com/Xepayac/JOST_ENGINE_7`
+*   **Path:** `backend`
 *   **Branch:** `main`
-*   **Status:** Up to date with `origin/main`.
-*   **Uncommitted Changes:**
-    *   **Modified:** Numerous files across the `src/jost_engine` and `tests` directories have been modified. Key changes include modifications to `setup.py` and `docs/README.md`.
-    *   **Deleted:** `src/jost_engine/data/betting_strategies/flat_bet.json`
-    *   **Untracked:**
-        - `requirements.txt`
-        - `src/jost_engine.egg-info/`
 
-## `frontend` Repository
+### `frontend` (`JOST_DJANGO_FRONTEND`)
 
+*   **URL:** `https://github.com/Xepayac/JOST_DJANGO_FRONTEND`
+*   **Path:** `frontend`
 *   **Branch:** `main`
-*   **Status:** Up to date with `origin/main`.
-*   **Uncommitted Changes:**
-    *   **Modified:**
-        - `blackjack_simulator/app.py`
+
+This setup allows for independent development of the frontend and backend components while maintaining a unified main project.
