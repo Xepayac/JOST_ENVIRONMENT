@@ -1,18 +1,9 @@
 {
-  "name": "Basic Betting Strategy",
-  "min_bet": 10,
-  "bet_ramp": [
-    {
-      "count_threshold": 0,
-      "bet_multiplier": 1
-    },
-    {
-      "count_threshold": 2,
-      "bet_multiplier": 2
-    },
-    {
-      "count_threshold": 4,
-      "bet_multiplier": 3
+    "name": "Basic Betting Strategy",
+    "type": "MasterBettingStrategy",
+    "bet_ramp": {
+        "0": 1,
+        "2": 2,
+        "4": 3
     }
-  ]
 }

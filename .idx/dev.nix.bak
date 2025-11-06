@@ -20,8 +20,6 @@
     pkgs.python312Packages.psycopg2
     # --- End Django Migration ---
     pkgs.redis
-    pkgs.python312Packages.gunicorn
-    pkgs.psmisc # Add psmisc for the fuser command
     # --- Packages from backend ---
     pkgs.python311
     pkgs.poetry
@@ -32,5 +30,13 @@
     extensions = [
       # "vscodevim.vim"
     ];
+
+    # Enable a web preview
+    # previews = {
+    #   web = {
+    #     command = "./devserver.sh";
+    #     manager = "web";
+    #   };
+    # };
   };
 }
