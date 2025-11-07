@@ -1,6 +1,7 @@
 pip
 autopep8
 Django
+djangorestframework
 pandas
 celery
 redis

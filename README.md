@@ -1,95 +1,57 @@
-# JOST Blackjack Simulation Platform: README
+# JOST Blackjack Simulation Platform
 
-Welcome to the JOST project. This document is your starting point and primary action plan.
-
-## 1. Our Guiding Principles (The "Pyramid of Knowledge")
-
-Before you begin, you must understand our development process. All work is guided by the principles in these three documents:
-
-1.  **`airules.md`:** Explains **how we work together**.
-2.  **`ARCHITECTURE.md`:** Explains **how the system is designed**.
-3.  **`DEVELOPMENT_ENVIRONMENT.md`:** Explains **how our workshop is set up**.
+Welcome to the JOST project. This `README.md` is the official entry point. It outlines our current development goals and provides a map to our comprehensive documentation.
 
 ---
 
-## 2. Current Status: "Level 2" Foundation Complete
+## 1. The "Pyramid of Knowledge": Our Documentation Hub
 
-**Status:** We have successfully completed our "Foundation First" pivot. Our development environment is now managed by a robust, stateful orchestration script (`start-services.sh`), and our Core API is fully functional and verified. This milestone is documented in our `CHANGELOG.md`.
+All project knowledge is centrally located in our `/docs` directory. The best place to start is our architectural blueprint.
 
-**Next Phase:** We will now begin building the core features of the web service.
-
----
-
-## 3. New High-Priority Goal: Custom Profile Management
-
-**Directive:** Our next goal is to build the API endpoints that will allow a user of the `user_terminal` to create, read, update, and delete (CRUD) their own custom simulation profiles for casinos, players, and betting strategies.
-
-This is the first major step in transforming our service from a demonstration tool into a powerful, user-centric platform.
+*   **[Project Documentation -> `docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)**
 
 ---
 
-## 4. Action Plan: The "Profile" API
+## 2. Current Status & High-Priority Goal
 
-We will begin by creating a new, dedicated Django app for profile management and defining its data model.
+**Status:** The major refactoring of the web service is complete. The codebase is now aligned with our stateless, "local-first" architecture.
 
-### [ ] 4.1. Create and Register the `profiles` App
-
-- **Purpose:** To create a new, dedicated app to house all logic related to managing user-defined profiles.
-- **Action 1:** Use the Django `startapp` command to create the new app.
-- **Command 1:** `(cd service && source ../.venv/bin/activate && python manage.py startapp profiles)`
-- **Verification 1:** The directory `service/profiles` will exist.
-- **Action 2:** Add the new app to the `INSTALLED_APPS` list in the Django settings.
-- **File:** `service/service/settings.py`
-- **Modification 2:** Add `'profiles.apps.ProfilesConfig',` to the `INSTALLED_APPS` list.
-- **Verification 2:** The development environment will start without errors using `./start-services.sh start`.
-
-### [ ] 4.2. Define the `Profile` Data Model
-
-- **Purpose:** To create the database model that will store all user-created profiles.
-- **Action:** Update the `service/profiles/models.py` file with the new model definition.
-- **Content:**
-  ```python
-  from django.db import models
-  from django.contrib.auth.models import User
-  import uuid
-
-  class Profile(models.Model):
-      PROFILE_TYPE_CHOICES = [
-          ('casino', 'Casino'),
-          ('player', 'Player'),
-          ('betting', 'Betting Strategy'),
-      ]
-
-      id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-      user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profiles')
-      profile_type = models.CharField(max_length=10, choices=PROFILE_TYPE_CHOICES)
-      name = models.CharField(max_length=100)
-      data = models.JSONField()
-      created_at = models.DateTimeField(auto_now_add=True)
-      updated_at = models.DateTimeField(auto_now=True)
-
-      class Meta:
-          unique_together = ('user', 'profile_type', 'name')
-
-      def __str__(self):
-          return f"{self.user.username}'s {self.get_profile_type_display()} - {self.name}"
-  ```
-- **Verification:** The file will be updated.
-
-### [ ] 4.3. Create and Apply Database Migrations
-
-- **Purpose:** To apply the new `Profile` model to our database schema.
-- **Action:** Run the `makemigrations` and `migrate` commands using our orchestration script.
-- **Command:** `./start-services.sh migrate`
-- **Verification:** The script will report that the migrations have been successfully created and applied.
+**Next Goal:** Before moving to the next phase, we must perform critical administrative and verification tasks to formally close out Phase 1 and ensure the system is robust.
 
 ---
 
-## 5. Standard Operating Procedures (The "How-To" Guide)
+## 3. Action Plan: Phase 1 Verification and Housekeeping
+
+### [ ] 3.1. Add and Commit All Changes
+
+- **Purpose:** To save all our recent refactoring work to the project's version control history.
+- **Action:** Add all changed files to the staging area and create a commit.
+- **Command 1:** `git add .`
+- **Command 2:** `git commit -m "feat: complete stateless refactor and build developer workbench"`
+- **Verification:** The `git status` command will show a clean working tree.
+
+### [ ] 3.2. Perform a Full System Smoke Test
+
+- **Purpose:** To provide definitive proof that the entire backend pipeline is working correctly and robustly. This is the final quality gate for Phase 1.
+- **Action:** We will use our new Developer Workbench to perform a complete, end-to-end test.
+    1.  Ensure all services are running with `./start-services.sh start`.
+    2.  Open the Developer Workbench in the browser (at the `/` URL).
+    3.  Click the "Load Defaults" button and verify that the reference column populates.
+    4.  Click the "Submit Job" button to run the pre-filled default simulation.
+    5.  Monitor the "Job Results" column.
+- **Verification:** The "Job Results" column must successfully transition from `Submitting job...` to `Job status: PENDING...` to `Job status: RUNNING...` and finally display the complete, formatted JSON output of the simulation. This successful result is the final sign-off for Phase 1.
+
+---
+
+## 4. Next Major Goal: Building the `user_terminal`
+
+Once the verification steps above are complete, we will begin **Phase 2:** the development of the `user_terminal`.
+
+---
+
+## 5. Standard Operating Procedures
 
 - **To Start All Services:** `./start-services.sh start`
 - **To Stop All Services:** `./start-services.sh stop`
-- **To Restart All Services:** `./start-services.sh restart`
 - **To Check Service Status:** `./start-services.sh status`
-- **To View All Logs (Streaming):** `./start-services.sh logs`
-- **To Run Migrations Manually:** `./start-services.sh migrate`
+- **To Run Migrations:** `./start-services.sh migrate`
