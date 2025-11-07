@@ -22,13 +22,14 @@ All project knowledge is centrally located in our `/docs` directory. The best pl
 
 ## 3. Action Plan: Phase 1 Verification and Housekeeping
 
-### [ ] 3.1. Add and Commit All Changes
+### [ ] 3.1. Commit All Submodule and Main Repository Changes
 
-- **Purpose:** To save all our recent refactoring work to the project's version control history.
-- **Action:** Add all changed files to the staging area and create a commit.
-- **Command 1:** `git add .`
-- **Command 2:** `git commit -m "feat: complete stateless refactor and build developer workbench"`
-- **Verification:** The `git status` command will show a clean working tree.
+- **Purpose:** To correctly save all our recent refactoring work to the project's version control history, respecting the submodule structure.
+- **Action:** We must commit the changes in each submodule first, then commit the main repository to track the new submodule versions.
+- **Command 1 (Commit `service`):** `(cd service && git add . && git commit -m "feat: complete stateless refactor and build developer workbench")`
+- **Command 2 (Commit `backend`):** `(cd backend && git add . && git commit -m "refactor: expose profile functions for defaults API")`
+- **Command 3 (Commit Main Repo):** `git add . && git commit -m "chore: track latest submodule versions after refactor"`
+- **Verification:** The `git status` command will show a clean working tree in the main repository and in both the `service` and `backend` submodules.
 
 ### [ ] 3.2. Perform a Full System Smoke Test
 
@@ -39,7 +40,7 @@ All project knowledge is centrally located in our `/docs` directory. The best pl
     3.  Click the "Load Defaults" button and verify that the reference column populates.
     4.  Click the "Submit Job" button to run the pre-filled default simulation.
     5.  Monitor the "Job Results" column.
-- **Verification:** The "Job Results" column must successfully transition from `Submitting job...` to `Job status: PENDING...` to `Job status: RUNNING...` and finally display the complete, formatted JSON output of the simulation. This successful result is the final sign-off for Phase 1.
+- **Verification:** The "Job Results" column must successfully transition from `Submitting job...` to `Job status: PENDING...` to `Job status: RUNNING...` and finally display the complete, formatted JSON output of the simulation.
 
 ---
 
