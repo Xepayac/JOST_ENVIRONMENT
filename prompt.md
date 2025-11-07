@@ -18,6 +18,8 @@ Before you take any action, you must understand our project's architecture and o
 
 4.  **`README.md`:** This document explains **what we are doing right now**. It contains the immediate, step-by-step "Corrective Action Plan" that we are currently executing.
 
+5.  ** DEVELOPMENT_ENVIRONMENT.md ** This document describes the architecture of our "Level 2" development environment. It is the direct result of a strategic pivot made in accordance with our "Foundation First" mandate (`airules.md`).
+
 ---
 
 ## 2. Your First Assignment
