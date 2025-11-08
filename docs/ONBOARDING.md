@@ -2,126 +2,56 @@
 
 ## 1. Welcome to the JOST Project
 
-This guide provides the exact, step-by-step instructions to get the JOST Blackjack Simulation Platform running on your local development machine. Follow these steps to go from a fresh `git clone` to a fully operational environment in minutes.
-
-**Our Goal:** To provide a "golden path" for setup, eliminating environmental friction and allowing you to focus on development.
+This guide provides the exact, step-by-step instructions to get the JOST Blackjack Simulation Platform running on your local development machine. Our "Level 4" environment is fully declarative and automated.
 
 ---
 
 ## 2. Prerequisites
 
 *   You must be working within the **Firebase IDX environment**.
-*   **Nix** must be installed and configured in your workspace (this is the default in IDX).
-*   You have `git` installed and have cloned the project repository.
+*   You have `git` installed and have cloned the project repository, including its submodules.
 
 ---
 
-## 3. Step-by-Step Setup Instructions
+## 3. The "One-Click" Setup Procedure
 
-### Step 3.1: Activate the Python Virtual Environment
+Our environment is managed declaratively through the `.idx/dev.nix` file. This file automatically configures and launches our entire application stack. There is only one manual step required to get a fully operational environment.
 
-All our Python tooling is managed within a local virtual environment (`.venv`). You must activate it first. This command should be run from the project's root directory.
+### The Only Step: Rebuild the Environment
 
-```bash
-source .venv/bin/activate
-```
-**Verification:** Your terminal prompt will now be prefixed with `(.venv)`.
+To start the entire application stack (Redis, Celery, and the Django Web Server), you simply need to build or rebuild the IDX environment.
 
-### Step 3.2: Start All Services
+1.  Open the **Command Palette** (Cmd+Shift+P on Mac, Ctrl+Shift+P on other systems).
+2.  Search for and run the command: **`Firebase Studio: Hard restart`**.
+3.  A notification will appear: "Environment config updated". Click the **"Rebuild environment"** button.
 
-Our entire development stack (Web Server, Celery Worker, Redis) is managed by a single orchestration script.
-
-```bash
-./start-services.sh start
-```
-**Verification:** The script will output status messages indicating that `gunicorn`, `celery`, and `redis-server` have been started successfully. You can confirm their status at any time with `./start-services.sh status`.
-
-### Step 3.3: Apply Database Migrations
-
-Ensure your local database schema is up-to-date with the latest data models.
-
-```bash
-./start-services.sh migrate
-```
-**Verification:** The script will report that all migrations have been successfully applied.
-
-### Step 3.4: Create a Superuser Account
-
-To interact with the API, you need a user account. We will create a superuser for this purpose.
-
-```bash
-(cd service && python manage.py createsuperuser)
-```
-Follow the prompts. For the smoke test, let's use the following credentials for simplicity:
-*   **Username:** `testuser`
-*   **Password:** `testpassword`
-
-**Verification:** The command will complete with a "Superuser created successfully." message.
+**That's it.** Upon a successful rebuild, the following will happen automatically:
+*   The **Redis** server will start.
+*   The **Celery worker** will start.
+*   The **Django web server** will start.
+*   The **IDX Preview panel** will open and connect to the web server, displaying the Developer Workbench.
 
 ---
 
-## 4. Smoke Test: Verifying Your Installation via API
+## 4. Smoke Test: Verifying Your Installation
 
-Now, we will confirm that every component of the system is working correctly by submitting a test job directly to the API using `curl`. This is the primary way our `user_terminal` will interact with the service.
+Once the environment is running, you can perform a simple smoke test to confirm that every component of the system is working correctly.
 
-*(Note: In a real client, we would handle login and cookie management. For this manual test, we will log in via the browser once to get a session cookie.)*
+1.  In the **IDX Preview panel**, which should be displaying the Developer Workbench, click the **"Load Defaults"** button.
+2.  **Verify** that the "Reference Defaults" column populates with JSON data.
+3.  Click the **"Submit Job"** button.
+4.  **Monitor** the "Job Results" column.
 
-### Step 4.1: Get a Session Cookie
+**Verification:** The "Job Results" column will transition from `Submitting job...` to `Job status: PENDING...`, `Job status: RUNNING...`, and finally display the complete, formatted JSON output of the simulation.
 
-1.  Open the web preview for the running application in your browser.
-2.  Navigate to the `/admin` URL.
-3.  Log in using the `testuser` / `testpassword` credentials you just created.
-4.  Open your browser's developer tools, go to the "Storage" or "Application" tab, find the Cookies for the site, and copy the value of the `sessionid` cookie.
-
-### Step 4.2: Submit a Simulation Job via `curl`
-
-Now, from your terminal, we will submit a job. Replace `YOUR_SESSION_ID_HERE` with the value you just copied.
-
-```bash
-# Define the session cookie and the sample job data
-SESSION_ID="YOUR_SESSION_ID_HERE"
-JOB_DATA='{
-    "casino": "perfect_h17_casino",
-    "num_rounds": 100,
-    "players": [
-        {
-            "profile": "perfect_player_rich",
-            "playing_strategy": "perfect_h17_basic_strategy",
-            "betting_strategy": "true_count_betting"
-        }
-    ]
-}'
-
-# Submit the job and extract the job_id from the response
-JOB_ID=$(curl -s -X POST http://127.0.0.1:8000/api/submit/ \
--H "Content-Type: application/json" \
--H "Cookie: sessionid=$SESSION_ID" \
--d "$JOB_DATA" | grep -o '"job_id": "[^"]*' | cut -d '"' -f 4)
-
-echo "Job submitted with ID: $JOB_ID"
-```
-**Verification:** The command will print a message like `Job submitted with ID: <a-uuid-string>`.
-
-### Step 4.3: Check Job Status and Get Results
-
-Wait a few seconds for the simulation to run, then use the `JOB_ID` to check the status.
-
-```bash
-# Check the job status
-curl -s -H "Cookie: sessionid=$SESSION_ID" http://127.0.0.1:8000/api/status/$JOB_ID/
-
-# Once the status is "COMPLETE", get the full results
-curl -s -H "Cookie: sessionid=$SESSION_ID" http://127.0.0.1:8000/api/results/$JOB_ID/ | python -m json.tool
-```
-**Verification:** The first command will show the job's status. Once it shows `"status": "COMPLETE"`, the second command will print the full, formatted JSON results of the simulation. If you see this output, your environment is **fully operational and verified**.
+If you see the final JSON results, your environment is **fully operational and verified**.
 
 ---
 
 ## 5. Next Steps
 
-You are now ready for development.
+You are now ready to begin development. For specific one-off tasks, you can use the terminal:
 
-*   To **view live logs** from all services: `./start-services.sh logs`
-*   To **stop all services** when you are finished: `./start-services.sh stop`
+*   **To Run Migrations:** `./start-services.sh migrate`
 
 Welcome to the team.

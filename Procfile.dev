@@ -1,0 +1,2 @@
+redis: redis-server
+worker: cd service && ../.venv/bin/celery -A celery_app worker --loglevel=info

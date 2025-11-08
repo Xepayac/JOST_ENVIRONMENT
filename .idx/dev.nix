@@ -8,29 +8,42 @@
   packages = [
     pkgs.python312
     pkgs.python312Packages.pip
+    pkgs.redis
     pkgs.python312Packages.pytest
     pkgs.python312Packages.pandas
     pkgs.python312Packages.pytest-cov
     pkgs.python312Packages.venvShellHook
-    # --- Django Migration Packages ---
     pkgs.postgresql
     pkgs.python312Packages.django
     pkgs.python312Packages.djangorestframework
     pkgs.python312Packages.django-celery-results
     pkgs.python312Packages.psycopg2
-    # --- End Django Migration ---
-    pkgs.redis
     pkgs.python312Packages.gunicorn
-    pkgs.psmisc # Add psmisc for the fuser command
-    # --- Packages from backend ---
-    pkgs.python311
+    pkgs.python312Packages.django-cors-headers
+    pkgs.psmisc
+    pkgs.foreman
     pkgs.poetry
   ];
 
+  services.redis.enable = true;
+
   idx = {
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       # "vscodevim.vim"
     ];
+
+    previews = {
+      enable = true;
+      previews = {
+        web = {
+          command = [
+            "sh"
+            "-c"
+            "cd service && ../.venv/bin/python manage.py runserver 0.0.0.0:$PORT"
+          ];
+          manager = "web";
+        };
+      };
+    };
   };
 }

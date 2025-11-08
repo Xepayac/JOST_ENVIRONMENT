@@ -11,3 +11,4 @@ pytest-cov
 django-celery-results
 requests
 gunicorn
+django-cors-headers

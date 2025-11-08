@@ -1,12 +1,12 @@
 # JOST Blackjack Simulation Platform
 
-Welcome to the JOST project. This `README.md` is the official entry point. It outlines our current development goals and provides a map to our comprehensive documentation.
+Welcome to the JOST project. This is our active, step-by-step action plan.
 
 ---
 
-## 1. The "Pyramid of Knowledge": Our Documentation Hub
+## 1. Documentation Hub
 
-All project knowledge is centrally located in our `/docs` directory. The best place to start is our architectural blueprint.
+All project knowledge is in our `/docs` directory. Start with `docs/ARCHITECTURE.md`.
 
 *   **[Project Documentation -> `docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)**
 
@@ -14,45 +14,39 @@ All project knowledge is centrally located in our `/docs` directory. The best pl
 
 ## 2. Current Status & High-Priority Goal
 
-**Status:** The major refactoring of the web service is complete. The codebase is now aligned with our stateless, "local-first" architecture.
+**Status:** Our "Level 4" environment is stable, and the database tables have been created. However, the database is empty. We have no user accounts to test our authenticated API.
 
-**Next Goal:** Before moving to the next phase, we must perform critical administrative and verification tasks to formally close out Phase 1 and ensure the system is robust.
-
----
-
-## 3. Action Plan: Phase 1 Verification and Housekeeping
-
-### [ ] 3.1. Commit All Submodule and Main Repository Changes
-
-- **Purpose:** To correctly save all our recent refactoring work to the project's version control history, respecting the submodule structure.
-- **Action:** We must commit the changes in each submodule first, then commit the main repository to track the new submodule versions.
-- **Command 1 (Commit `service`):** `(cd service && git add . && git commit -m "feat: complete stateless refactor and build developer workbench")`
-- **Command 2 (Commit `backend`):** `(cd backend && git add . && git commit -m "refactor: expose profile functions for defaults API")`
-- **Command 3 (Commit Main Repo):** `git add . && git commit -m "chore: track latest submodule versions after refactor"`
-- **Verification:** The `git status` command will show a clean working tree in the main repository and in both the `service` and `backend` submodules.
-
-### [ ] 3.2. Perform a Full System Smoke Test
-
-- **Purpose:** To provide definitive proof that the entire backend pipeline is working correctly and robustly. This is the final quality gate for Phase 1.
-- **Action:** We will use our new Developer Workbench to perform a complete, end-to-end test.
-    1.  Ensure all services are running with `./start-services.sh start`.
-    2.  Open the Developer Workbench in the browser (at the `/` URL).
-    3.  Click the "Load Defaults" button and verify that the reference column populates.
-    4.  Click the "Submit Job" button to run the pre-filled default simulation.
-    5.  Monitor the "Job Results" column.
-- **Verification:** The "Job Results" column must successfully transition from `Submitting job...` to `Job status: PENDING...` to `Job status: RUNNING...` and finally display the complete, formatted JSON output of the simulation.
+**Next Goal:** Our immediate priority is to **create a user, log in, and perform the final smoke test** to confirm our environment is fully operational.
 
 ---
 
-## 4. Next Major Goal: Building the `user_terminal`
+## 3. Action Plan: Final Foundational Step
 
-Once the verification steps above are complete, we will begin **Phase 2:** the development of the `user_terminal`.
+### [ ] 3.1. Create a Superuser Account
+
+- **Purpose:** To create the first user in our database, which is required to test our authenticated API endpoints.
+- **Action:** Use the Django `createsuperuser` management command.
+- **Command:** `(cd service && ../.venv/bin/python manage.py createsuperuser)`
+- **Instructions:** Follow the prompts to create a username and password.
+
+### [ ] 3.2. Log In to the Application
+
+- **Purpose:** To create an authenticated session so the Developer Workbench can successfully call our API.
+- **Action:**
+    1.  **Relaunch the preview** (`Firebase Studio: Relaunch preview`).
+    2.  In the preview panel, navigate to the `/admin` URL.
+    3.  Log in using the superuser credentials you just created.
+    4.  After logging in, navigate back to the root URL (`/`) to use the Developer Workbench.
 
 ---
 
-## 5. Standard Operating Procedures
+## 4. Final Verification
 
-- **To Start All Services:** `./start-services.sh start`
-- **To Stop All Services:** `./start-services.sh stop`
-- **To Check Service Status:** `./start-services.sh status`
-- **To Run Migrations:** `./start-services.sh migrate`
+### [ ] 4.1. Perform a Full System Smoke Test
+
+- **Purpose:** To provide definitive proof that our fully configured and initialized pipeline is working correctly.
+- **Action:**
+    1.  With the Developer Workbench open and your session authenticated, click "Load Defaults."
+    2.  Select a profile for each component from the dropdowns.
+    3.  Click "Submit Job."
+- **Verification:** The simulation will run successfully, and the results will be displayed. This is the final sign-off for Phase 1.
