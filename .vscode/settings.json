@@ -1,0 +1,5 @@
+{
+    "chatgpt.gpt3.provider": "GitHubCopilot",
+    "chatgpt.gpt3.apiKey": "github",
+    "chatgpt.gpt3.reasoning.apiKey": "github"
+}
