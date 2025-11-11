@@ -1,9 +1,0 @@
-{
-    "name": "Basic Betting Strategy",
-    "type": "MasterBettingStrategy",
-    "bet_ramp": {
-        "0": 1,
-        "2": 2,
-        "4": 3
-    }
-}
