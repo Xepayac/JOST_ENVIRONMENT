@@ -4,17 +4,14 @@ This document outlines the development plan for creating the Minimum Viable Prod
 
 ## Phase 1: Environment and Foundation
 
-1.  **[ ] Create `app.py`:** Create the main application file. It will initially contain only the title.
-2.  **[ ] Create `requirements.txt`:** Create a new `requirements.txt` file with the single entry: `streamlit`. We will add more dependencies as needed.
-3.  **[ ] Update `CONTRIBUTING.md`:** Solidify the setup instructions in the `Development Environment Setup` section to be the definitive guide:
-    *   `pip install -r requirements.txt`
-    *   `pip install -e backend`
-    *   `streamlit run app.py`
+1.  **[X] Create `app.py`:** Create the main application file. It will initially contain only the title.
+2.  **[X] Create `requirements.txt`:** Create a new `requirements.txt` file with the single entry: `streamlit`. We will add more dependencies as needed.
+3.  **[X] Update `CONTRIBUTING.md`:** Solidify the setup instructions in the `Development Environment Setup` section to be the definitive guide.
 
 ## Phase 2: Building the User Interface in `app.py`
 
-1.  **[ ] File Discovery Logic:**
-    *   Create a helper function that can scan the subdirectories within `backend/src/jost_engine/data/` (e.g., `casinos`, `players`, `playing_strategies`, `betting_strategies`).
+1.  **[X] File Discovery Logic:**
+    *   Create a helper function that can scan the subdirectories within `data/defaults/` (e.g., `casinos`, `players`, `playing_strategies`, `betting_strategies`).
     *   This function will return lists of the available profile filenames.
 
 2.  **[ ] UI Widget Implementation:**
