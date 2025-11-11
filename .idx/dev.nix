@@ -2,30 +2,16 @@
 # see: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  channel = "unstable"; # Using unstable to resolve dependency issues
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.python312
     pkgs.python312Packages.pip
-    pkgs.redis
-    pkgs.python312Packages.pytest
+    pkgs.python312Packages.streamlit
     pkgs.python312Packages.pandas
-    pkgs.python312Packages.pytest-cov
-    pkgs.python312Packages.venvShellHook
-    pkgs.postgresql
-    pkgs.python312Packages.django
-    pkgs.python312Packages.djangorestframework
-    pkgs.python312Packages.django-celery-results
-    pkgs.python312Packages.psycopg2
-    pkgs.python312Packages.gunicorn
-    pkgs.python312Packages.django-cors-headers
-    pkgs.psmisc
-    pkgs.foreman
-    pkgs.poetry
+    pkgs.python312Packages.pytest
   ];
-
-  services.redis.enable = true;
 
   idx = {
     extensions = [
@@ -37,9 +23,17 @@
       previews = {
         web = {
           command = [
-            "sh"
-            "-c"
-            "cd service && ../.venv/bin/python manage.py runserver 0.0.0.0:$PORT"
+            ".venv/bin/streamlit" # Explicitly calling streamlit from our virtual environment
+            "run"
+            "app.py"
+            "--server.port"
+            "$PORT"
+            "--server.headless"
+            "true"
+            "--server.enableCORS"
+            "false"
+            "--server.enableXsrfProtection"
+            "false"
           ];
           manager = "web";
         };

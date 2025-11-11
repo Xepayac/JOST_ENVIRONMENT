@@ -1,8 +1,0 @@
-{
-    "name": "Master Player",
-    "bankroll": 10000,
-    "is_ai": true,
-    "playing_strategy": "master_playing_strategy",
-    "betting_strategy": "master_betting_strategy",
-    "counting_strategy": "hilo"
-}
